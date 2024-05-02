@@ -8,7 +8,9 @@
 script = ExtResource("1_cb1gy")
 
 [node name="Inventory" parent="." instance=ExtResource("1_osw1o")]
+visible = false
 position = Vector2(186, 23)
 
 [node name="TaskContainer" parent="." instance=ExtResource("2_vy00s")]
+visible = false
 position = Vector2(576, 324)

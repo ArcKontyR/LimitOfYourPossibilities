@@ -55,6 +55,7 @@ layout_mode = 2
 [node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_htf03")
 texture_pressed = ExtResource("3_p81b2")
 texture_hover = ExtResource("4_2sfu8")
@@ -64,6 +65,7 @@ stretch_mode = 5
 [node name="Settings" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_fve04")
 texture_pressed = ExtResource("6_4qx0a")
 texture_hover = ExtResource("7_2ycf1")
@@ -73,6 +75,7 @@ stretch_mode = 5
 [node name="Exit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("8_evkr3")
 texture_pressed = ExtResource("9_6vyxn")
 texture_hover = ExtResource("10_0kfri")

@@ -15,7 +15,7 @@ var currentLimitLoaded = {};
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	toggleVisibility();
+	if visible: toggleVisibility();
 	checkSuccessful.connect(toggleVisibility);
 	var slots = answerSlots.get_children()
 	for i in range(slots.size()):

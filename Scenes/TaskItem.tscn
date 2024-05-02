@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3tmrbix7cat7"]
 
 [ext_resource type="Script" path="res://Scripts/TaskItem.gd" id="1_pi5j2"]
-[ext_resource type="Texture2D" uid="uid://dmkp1sw5fshsn" path="res://Sprites/UI/PlaceholderIcon.png" id="2_fc51m"]
+[ext_resource type="Texture2D" uid="uid://de6hqat4qlo4q" path="res://Sprites/UI/PlaceholderIcon.png" id="2_fc51m"]
 
 [node name="TaskItem" type="Node2D"]
 z_index = 1

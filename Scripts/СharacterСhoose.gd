@@ -6,12 +6,7 @@ extends Control
 func _ready():
 	for button in characters.get_buttons():
 		button.pressed.connect(_on_character_selection);
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _on_character_selection():
 	var pressedButtonName = characters.get_pressed_button().name;
@@ -20,7 +15,6 @@ func _on_character_selection():
 			GlobalSettings.playerGender = GlobalSettings.Gender.FEMALE;
 		_:
 			GlobalSettings.playerGender = GlobalSettings.Gender.MALE;
-
 
 func _on_start_game_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Root.tscn") # Replace with function body.

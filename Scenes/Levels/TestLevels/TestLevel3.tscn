@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://1fd33vfsxs5s"]
 
 [ext_resource type="Script" path="res://Scripts/Map.gd" id="1_37pm8"]
-[ext_resource type="Texture2D" uid="uid://ctlkyfbfeg3i8" path="res://Sprites/Background2.png" id="1_d0x8u"]
+[ext_resource type="Texture2D" uid="uid://db207b5s1eag7" path="res://Sprites/Background2.png" id="1_d0x8u"]
 [ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Floor.tscn" id="2_wtntn"]
 [ext_resource type="PackedScene" uid="uid://ccv0316dswlss" path="res://Scenes/TeleportArea.tscn" id="3_xgk51"]
 [ext_resource type="PackedScene" uid="uid://duf3rtoth5kj7" path="res://Scenes/Wall.tscn" id="4_hcog1"]

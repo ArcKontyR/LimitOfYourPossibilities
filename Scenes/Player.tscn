@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://syai1i2peyh2" path="res://Scenes/Сamera.tscn" id="3_vflur"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltd0l"]
-radius = 15.0
-height = 98.6667
+radius = 20.6667
+height = 139.333
 
 [sub_resource type="Animation" id="Animation_kx0qm"]
 resource_name = "M_IdleLeft"
@@ -346,21 +346,19 @@ script = ExtResource("1_8huay")
 metadata/collidesWith = NodePath("")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_m78cn")
-centered = false
 flip_h = true
 hframes = 4
 vframes = 2
 frame = 4
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(101, 178)
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_ltd0l")
 
 [node name="Camera" parent="." instance=ExtResource("3_vflur")]
-position = Vector2(110, 117)
+position = Vector2(0, -103)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0

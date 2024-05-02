@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://ygnliitypvw8"]
+[gd_scene load_steps=7 format=3 uid="uid://ygnliitypvw8"]
 
-[ext_resource type="PackedScene" uid="uid://c1eilqm03vnp6" path="res://Scenes/Levels/TestLevel1.tscn" id="1_ceap3"]
-[ext_resource type="PackedScene" uid="uid://64wgd3u064ya" path="res://Scenes/Levels/TestLevel2.tscn" id="1_wylms"]
+[ext_resource type="PackedScene" uid="uid://c1eilqm03vnp6" path="res://Scenes/Levels/TestLevels/TestLevel1.tscn" id="1_ceap3"]
+[ext_resource type="PackedScene" uid="uid://dmwwwqy0cqaf4" path="res://Scenes/Levels/Levels/StartRoom.tscn" id="1_cxger"]
+[ext_resource type="PackedScene" uid="uid://64wgd3u064ya" path="res://Scenes/Levels/TestLevels/TestLevel2.tscn" id="1_wylms"]
 [ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI.tscn" id="2_5jdop"]
 [ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Player.tscn" id="2_whqsv"]
-[ext_resource type="PackedScene" uid="uid://1fd33vfsxs5s" path="res://Scenes/Levels/TestLevel3.tscn" id="3_ilbpk"]
+[ext_resource type="PackedScene" uid="uid://1fd33vfsxs5s" path="res://Scenes/Levels/TestLevels/TestLevel3.tscn" id="3_ilbpk"]
 
 [node name="Root" type="Node2D"]
 
+[node name="StartRoom" parent="." instance=ExtResource("1_cxger")]
+scale = Vector2(0.5, 0.5)
+
 [node name="TestLevel1" parent="." instance=ExtResource("1_ceap3")]
+process_mode = 4
+visible = false
 position = Vector2(128, -159)
 
 [node name="TestLevel2" parent="." instance=ExtResource("1_wylms")]
@@ -22,5 +28,6 @@ visible = false
 position = Vector2(3036, 537)
 
 [node name="Player" parent="." instance=ExtResource("2_whqsv")]
+position = Vector2(219, 302)
 
 [node name="UI" parent="." instance=ExtResource("2_5jdop")]
