@@ -1,4 +1,4 @@
-<h1 align="left">MathQuest</h1>
+<h1 align="left">Предел твоих возможностей</h1>
 <h2 align="left">Игра созданная на Godot Engine</h2>
 
 <p align="left">Разработан в качестве проекта по курсу "Проектный практикум" 1 курс, ИРиТ-РтФ, УРФУ</p>
@@ -18,4 +18,4 @@
 
 
 <h2 align="left">Последняя версия игры</h2>
-<p align="left"><a href="https://github.com/ArcKontyR/MathQuest/">MathQuest v0.0</a></p>
+<p align="left"><a href="https://github.com/ArcKontyR/LimitOfYourPossibilities/">LimitOfYourPossibilities v0.0</a></p>
