@@ -34,13 +34,23 @@ func loadLimitAsJSON(filePath):
 	_initialize();
 
 func _initialize():
+	var usedSlotIndexes: Array;
 	for item in currentLimitLoaded["Parts"]:
-		#randomize();
-		#var randomSlotIndex = randi_range(0,answerSlots.get_child_count()-1)
-		var answerSlot = answerSlots.get_child(item["CompareCode"]-1);
+		
+		randomize();
+		var randomSlotIndex = randi_range(0,answerSlots.get_child_count()-1);
+		print("pre while new index - %s" % randomSlotIndex);
+		while usedSlotIndexes.find(randomSlotIndex) != -1: 
+			randomSlotIndex = randi_range(0,answerSlots.get_child_count()-1);
+			#print("in while new index - %s" % randomSlotIndex);
+			#print("binary search index - %s" % usedSlotIndexes.bsearch(randomSlotIndex,true));
+		usedSlotIndexes.append(randomSlotIndex);
+		#print(usedSlotIndexes);
+		var answerSlot = answerSlots.get_child(randomSlotIndex);
 		var taskItem: TaskItem = defaultItem.instantiate();
 		taskItem.setItem(item["CompareCode"], "Tasks/%s" % currentLimitLoaded["Path"]+item["PictureName"]);
 		answerSlot.setItem(taskItem);
+		#print("loaded %s element" % item["CompareCode"]);
 
 
 func slot_gui_input(event: InputEvent, slot: TaskSlot):

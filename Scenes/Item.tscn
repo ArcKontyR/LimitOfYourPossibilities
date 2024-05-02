@@ -4,17 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://cxhycune60r7l" path="res://Sprites/UI/sausage.png" id="2_6xojm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j5g3"]
-size = Vector2(16, 16)
+size = Vector2(123.5, 131.5)
 
 [node name="Item" type="Area2D"]
 disable_mode = 1
 script = ExtResource("1_4vl18")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+clip_contents = true
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = 96.0
 texture = ExtResource("2_6xojm")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_5j5g3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

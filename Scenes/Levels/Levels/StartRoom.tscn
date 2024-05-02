@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmwwwqy0cqaf4"]
+[gd_scene load_steps=12 format=3 uid="uid://dmwwwqy0cqaf4"]
 
 [ext_resource type="Texture2D" uid="uid://ckigoxwy53rge" path="res://Sprites/Background/RoomBackground.jpg" id="1_5fk7j"]
 [ext_resource type="Script" path="res://Scripts/Map.gd" id="1_ruyoo"]
 [ext_resource type="Texture2D" uid="uid://xyxy8yljewaq" path="res://Sprites/Background/RoomForeground.png" id="2_le4i1"]
 [ext_resource type="PackedScene" uid="uid://duf3rtoth5kj7" path="res://Scenes/Wall.tscn" id="3_nn01w"]
 [ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Floor.tscn" id="4_g6oh2"]
+[ext_resource type="PackedScene" uid="uid://cssbmiaa7x1qw" path="res://Scenes/Item.tscn" id="4_tjr6h"]
 [ext_resource type="PackedScene" uid="uid://ccv0316dswlss" path="res://Scenes/TeleportArea.tscn" id="5_8lnp5"]
+[ext_resource type="Texture2D" uid="uid://bj4k4ftk2yuve" path="res://Sprites/UI/PaperVar1.png" id="5_vfhfy"]
+[ext_resource type="Texture2D" uid="uid://5auxssambnip" path="res://Sprites/UI/PaperVar3.png" id="5_yof1l"]
+[ext_resource type="Texture2D" uid="uid://cn1iga3xennv6" path="res://Sprites/UI/PaperVar4.png" id="7_76pnl"]
+[ext_resource type="Texture2D" uid="uid://bsg1i42spcqy" path="res://Sprites/UI/PaperVar2.png" id="8_xmcwf"]
 
 [node name="StartRoom" type="Node2D"]
 script = ExtResource("1_ruyoo")
@@ -18,13 +23,40 @@ texture = ExtResource("1_5fk7j")
 
 [node name="Foreground" type="TextureRect" parent="Background"]
 z_index = 1
+layout_mode = 0
 offset_left = -2.0
 offset_right = 2580.0
 offset_bottom = 1224.0
 texture = ExtResource("2_le4i1")
 expand_mode = 1
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Item" parent="Items" instance=ExtResource("4_tjr6h")]
+position = Vector2(1411, 903)
+_itemName = "Кусок конспекта"
+_description = "Оторванный кусок конспекта"
+_texture = ExtResource("5_yof1l")
+
+[node name="Item2" parent="Items" instance=ExtResource("4_tjr6h")]
+position = Vector2(140, 1051)
+_itemName = "Кусок конспекта"
+_description = "Кусок помятого конспекта"
+_texture = ExtResource("5_vfhfy")
+
+[node name="Item3" parent="Items" instance=ExtResource("4_tjr6h")]
+position = Vector2(729, 423)
+_itemName = "Кусок конспекта"
+_description = "Оторванный кусок конспекта"
+_texture = ExtResource("7_76pnl")
+
+[node name="Item4" parent="Items" instance=ExtResource("4_tjr6h")]
+position = Vector2(1087, 1080)
+_itemName = "Кусочки"
+_description = "Куски порванной бумаги"
+_texture = ExtResource("8_xmcwf")
 
 [node name="Environment" type="Control" parent="."]
 z_index = -1

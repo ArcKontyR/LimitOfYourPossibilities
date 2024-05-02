@@ -1,8 +1,12 @@
 class_name Item extends Node2D
 
-var _itemName: String = "";
-var _amount: int = 0;
-var _description: String = "";
+@export var _itemName: String = "";
+@export var _description: String = "";
+@export var _texture: Texture2D;
+
+func _ready():
+	if _texture != null:
+		$TextureRect.texture = _texture;
 
 func getName():
 	return _itemName;
@@ -10,8 +14,6 @@ func getName():
 func getTexture():
 	return $TextureRect.texture;
 	
-func getAmount():
-	return _amount;
 	
 func getDescription():
 	return _description;
@@ -24,7 +26,6 @@ func disable():
 
 func createItem(_name: String, _desc: String = ""):
 	_itemName = _name;
-	_amount = 1;
 	_description = _desc;
 	$TextureRect.texture = load("res://Sprites/UI/%s.png" % _name);
 	

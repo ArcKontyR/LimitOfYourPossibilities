@@ -36,6 +36,8 @@ offset_top = 25.0
 offset_right = 140.0
 offset_bottom = 135.0
 texture = ExtResource("3_nw1n1")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Description" type="Label" parent="."]
 layout_mode = 0

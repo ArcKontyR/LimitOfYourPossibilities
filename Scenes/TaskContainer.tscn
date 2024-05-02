@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://5w4uh0btd1e7"]
 
-[ext_resource type="Texture2D" uid="uid://cxa5bnc8wfqfm" path="res://Sprites/UI/TaskContainerBackground.png" id="1_5ecxg"]
+[ext_resource type="Texture2D" uid="uid://d3vdxm3cqdw5p" path="res://Sprites/UI/TaskContainerBackground.png" id="1_5ecxg"]
 [ext_resource type="Script" path="res://Scripts/TaskContainer.gd" id="1_s1dvy"]
 [ext_resource type="PackedScene" uid="uid://5un22ev8q44w" path="res://Scenes/TaskSlot.tscn" id="2_fufwp"]
 [ext_resource type="Script" path="res://Scripts/CheckButton.gd" id="4_xgv8j"]
