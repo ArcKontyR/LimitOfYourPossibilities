@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/СharacterСhoose.gd" id="1_4otyb"]
 [ext_resource type="ButtonGroup" uid="uid://cfj5avg67ll4y" path="res://Resources/CharacterChoose.tres" id="2_jb6kg"]
-[ext_resource type="Texture2D" uid="uid://27fo5ejlxbri" path="res://Sprites/PlayerSprite.png" id="3_015l2"]
-[ext_resource type="Texture2D" uid="uid://b75fhykakes8w" path="res://Sprites/UI/ItemFrame2.png" id="3_66b70"]
+[ext_resource type="Texture2D" uid="uid://b7qbjgdq6pth4" path="res://Sprites/PlayerSprite.png" id="3_015l2"]
+[ext_resource type="Texture2D" uid="uid://bsg27smh15dve" path="res://Sprites/UI/ItemFrame2.png" id="3_66b70"]
 
 [sub_resource type="SystemFont" id="SystemFont_vg0vm"]
 font_names = PackedStringArray("Cascadia Code")

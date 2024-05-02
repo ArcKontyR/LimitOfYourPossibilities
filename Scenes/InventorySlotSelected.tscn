@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://hjd2q7nwpans"]
 
-[ext_resource type="Texture2D" uid="uid://57y7oyur5323" path="res://Sprites/UI/InventorySlot.png" id="1_uu1m8"]
+[ext_resource type="Texture2D" uid="uid://bhejyg6om4st" path="res://Sprites/UI/InventorySlot.png" id="1_uu1m8"]
 [ext_resource type="Script" path="res://Scripts/SlotSelected.gd" id="2_no3a6"]
-[ext_resource type="Texture2D" uid="uid://dmkp1sw5fshsn" path="res://Sprites/UI/PlaceholderIcon.png" id="3_nw1n1"]
+[ext_resource type="Texture2D" uid="uid://de6hqat4qlo4q" path="res://Sprites/UI/PlaceholderIcon.png" id="3_nw1n1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_um02o"]
 texture = ExtResource("1_uu1m8")
