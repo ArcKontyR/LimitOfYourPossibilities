@@ -1,5 +1,4 @@
-class_name JSONParser extends Node
-
+extends Node
 static func LoadData(file_path):
 	var file_data = FileAccess.open(file_path, FileAccess.READ)
 	var json_data = JSON.new();

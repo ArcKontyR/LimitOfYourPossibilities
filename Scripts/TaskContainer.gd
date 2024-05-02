@@ -29,7 +29,7 @@ func _ready():
 	pass # Replace with function body.
 	
 func loadLimitAsJSON(filePath):
-	currentLimitLoaded = JSONParser.LoadData(filePath);
+	currentLimitLoaded = JsonParser.LoadData(filePath);
 	print("%s loaded" % currentLimitLoaded["Name"])
 	_initialize();
 

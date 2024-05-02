@@ -1,17 +1,12 @@
 extends CharacterBody2D
 
-enum Gender{
-	MALE = 0,
-	FEMALE = 1
-}
+
 signal teleportInitiate;
 
 const SPEED: float = 150.0
 const SPRINT_MULTIPLIER: float = 1.8;
 
 var currentSpeed = SPEED;
-
-@export var gender = Gender.FEMALE;
 
 @onready var inventory = get_viewport().get_node("Root/UI/Inventory");
 @onready var task: TaskContainer = get_viewport().get_node("Root/UI/TaskContainer");
@@ -22,7 +17,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: float;
 
 func _ready():
-	animationTree = $WAnimationTree if gender == Gender.FEMALE else $MAnimationTree;
+	animationTree = $WAnimationTree if GlobalSettings.playerGender == GlobalSettings.Gender.FEMALE else $MAnimationTree;
 	animationTree.active = true;
 	
 func _process(_delta):

@@ -9,16 +9,17 @@
 [node name="Root" type="Node2D"]
 
 [node name="TestLevel1" parent="." instance=ExtResource("1_ceap3")]
+position = Vector2(128, -159)
 
 [node name="TestLevel2" parent="." instance=ExtResource("1_wylms")]
 process_mode = 4
 visible = false
-position = Vector2(536, 36)
+position = Vector2(664, -123)
 
 [node name="TestLevel3" parent="." instance=ExtResource("3_ilbpk")]
 process_mode = 4
 visible = false
-position = Vector2(2908, 696)
+position = Vector2(3036, 537)
 
 [node name="Player" parent="." instance=ExtResource("2_whqsv")]
 
