@@ -8,7 +8,7 @@ const SPRINT_MULTIPLIER: float = 1.8;
 
 var currentSpeed = SPEED;
 
-@onready var inventory = get_viewport().get_node("Root/UI/Inventory");
+@onready var inventory: UIInventory = get_viewport().get_node("Root/UI/Inventory");
 @onready var task: TaskContainer = get_viewport().get_node("Root/UI/TaskContainer");
 var animationTree: AnimationTree;
 

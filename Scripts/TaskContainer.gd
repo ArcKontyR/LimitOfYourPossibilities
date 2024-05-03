@@ -34,12 +34,11 @@ func loadLimitAsJSON(filePath):
 	_initialize();
 
 func _initialize():
-	var usedSlotIndexes: Array;
+	var usedSlotIndexes: Array = [];
 	for item in currentLimitLoaded["Parts"]:
-		
 		randomize();
 		var randomSlotIndex = randi_range(0,answerSlots.get_child_count()-1);
-		print("pre while new index - %s" % randomSlotIndex);
+		#print("pre while new index - %s" % randomSlotIndex);
 		while usedSlotIndexes.find(randomSlotIndex) != -1: 
 			randomSlotIndex = randi_range(0,answerSlots.get_child_count()-1);
 			#print("in while new index - %s" % randomSlotIndex);
