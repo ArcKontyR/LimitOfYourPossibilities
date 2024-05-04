@@ -12,10 +12,9 @@
 
 <h2 align="left">Документация и наработки</h2>
 
-| | | | | | |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| [Все артефакты]() | [Аналитика]() | [Дизайн]() | [Гейм-дизайн]() | [Разработка]() | [Работа тимлида]() |
-
+| | | 
+| :---: | :---: | 
+| [Дизайн](https://www.figma.com/file/GYEY5XqhwV2Zin1i6nvTmI/%D0%9F%D0%9F) | [Техническое задание](https://docs.google.com/document/d/1pQk8ID1J_xdW1b8TAQ9oJUXg9CwsAHJxl3y7_2hsR38/edit) | 
 
 <h2 align="left">Последняя версия игры</h2>
 <p align="left"><a href="https://github.com/ArcKontyR/LimitOfYourPossibilities/">LimitOfYourPossibilities v0.0</a></p>
