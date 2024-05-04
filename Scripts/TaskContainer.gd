@@ -7,7 +7,7 @@ signal taskCleared;
 var currentLimitLoaded = {};
 
 @onready var defaultItem = preload("res://Scenes/TaskItem.tscn");
-@onready var teleport = get_viewport().get_node("Root/")
+#@onready var teleport = $TeleportArea;
 
 @onready var UI = find_parent("UI");
 @onready var answerSlots = $TaskAnswers;

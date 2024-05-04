@@ -1,13 +1,37 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1eilqm03vnp6"]
 
-[ext_resource type="Script" path="res://Scripts/Map.gd" id="1_8t0ul"]
 [ext_resource type="Texture2D" uid="uid://c50jsvqdm3pm" path="res://Sprites/Background.png" id="2_2gcrs"]
 [ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Floor.tscn" id="3_qje5g"]
 [ext_resource type="PackedScene" uid="uid://duf3rtoth5kj7" path="res://Scenes/Wall.tscn" id="4_84741"]
 [ext_resource type="PackedScene" uid="uid://ccv0316dswlss" path="res://Scenes/TeleportArea.tscn" id="5_a45v5"]
 
+[sub_resource type="GDScript" id="GDScript_a2q0t"]
+script/source = "class_name Map extends Node2D
+
+var emptyItem;
+var iconNames =[\"sausage\", \"Bomb\"];
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	emptyItem = preload(\"res://Scenes/Item.tscn\")
+	#for i in range(4):
+	#	randomize();
+	#	var itemInstance = emptyItem.instantiate();
+	#	var j = randf_range(0,2);
+	#	itemInstance.createItem(iconNames[j]);
+	#	itemInstance.position = Vector2(int(randf_range(0,400)), int(randf_range(50,450)));
+	#	$Items.add_child(itemInstance);
+	pass # Replace with function body.
+
+	
+func toggleLevel():
+	visible = !visible
+	process_mode = PROCESS_MODE_DISABLED if (process_mode == PROCESS_MODE_INHERIT) else PROCESS_MODE_INHERIT;
+	pass;
+"
+
 [node name="TestLevel1" type="Node2D"]
-script = ExtResource("1_8t0ul")
+script = SubResource("GDScript_a2q0t")
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.313726)

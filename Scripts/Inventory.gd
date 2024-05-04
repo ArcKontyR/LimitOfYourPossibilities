@@ -3,8 +3,8 @@ extends Resource
 
 @export var items = [];
 
-func addItem(item: Item):
-	items.push_back(item);
+func addItem(itemUniqueId: String):
+	items.push_back(itemUniqueId);
 	#print(item);
 	#_update();
 	emit_changed();

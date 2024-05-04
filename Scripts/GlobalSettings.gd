@@ -4,4 +4,5 @@ enum Gender{
 	FEMALE = 1
 }
 
-@export var playerGender = Gender.FEMALE;
+@export var playerGender = GlobalSettings.Gender.FEMALE;
+@export var save: SaveGame;

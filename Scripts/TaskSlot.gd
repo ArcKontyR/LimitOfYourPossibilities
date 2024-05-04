@@ -3,7 +3,7 @@ class_name TaskSlot extends Panel
 var item: TaskItem = null
 var slot_index;
 
-@onready var UI = get_viewport().get_node("Root/UI");
+@onready var UI = find_parent("UI");
 
 signal slotItemChanged;
 

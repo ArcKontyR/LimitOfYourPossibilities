@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://dmwwwqy0cqaf4"]
+
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_xwmva"]
+[ext_resource type="Texture2D" uid="uid://ckigoxwy53rge" path="res://Sprites/Background/RoomBackground.jpg" id="2_xb1fs"]
+[ext_resource type="Texture2D" uid="uid://xyxy8yljewaq" path="res://Sprites/Background/RoomForeground.png" id="3_frsqa"]
+[ext_resource type="PackedScene" uid="uid://cssbmiaa7x1qw" path="res://Scenes/UIItem.tscn" id="4_vng03"]
+[ext_resource type="Resource" uid="uid://ov3li7x4bdy0" path="res://Resources/Items/CLimitDef2.tres" id="5_q3pf3"]
+[ext_resource type="Resource" uid="uid://chrehi12dbe1j" path="res://Resources/Items/CLimitDef1.tres" id="6_45lbn"]
+[ext_resource type="Resource" uid="uid://ciadsjjhrj5sr" path="res://Resources/Items/CCorner.tres" id="7_owwa2"]
+[ext_resource type="Resource" uid="uid://dol368dtcvek5" path="res://Resources/Items/CLimitDef3.tres" id="8_4vesa"]
+[ext_resource type="PackedScene" uid="uid://duf3rtoth5kj7" path="res://Scenes/Wall.tscn" id="9_ih1aw"]
+[ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Floor.tscn" id="10_j8fts"]
+[ext_resource type="PackedScene" uid="uid://ccv0316dswlss" path="res://Scenes/TeleportArea.tscn" id="11_4lfdu"]
+[ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Player.tscn" id="12_5fc0i"]
+[ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI.tscn" id="13_ule32"]
+
+[node name="Room1" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_xwmva")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 2.0
+offset_right = 2584.0
+offset_bottom = 1224.0
+texture = ExtResource("2_xb1fs")
+
+[node name="Foreground" type="TextureRect" parent="Background"]
+z_index = 1
+layout_mode = 0
+offset_left = -2.0
+offset_right = 2580.0
+offset_bottom = 1224.0
+texture = ExtResource("3_frsqa")
+expand_mode = 1
+
+[node name="Items" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Item" parent="Items" instance=ExtResource("4_vng03")]
+position = Vector2(1411, 903)
+item = ExtResource("5_q3pf3")
+
+[node name="Item2" parent="Items" instance=ExtResource("4_vng03")]
+position = Vector2(140, 1051)
+item = ExtResource("6_45lbn")
+
+[node name="Item3" parent="Items" instance=ExtResource("4_vng03")]
+position = Vector2(729, 423)
+item = ExtResource("7_owwa2")
+
+[node name="Item4" parent="Items" instance=ExtResource("4_vng03")]
+position = Vector2(1087, 1080)
+item = ExtResource("8_4vesa")
+
+[node name="Environment" type="Control" parent="."]
+z_index = -1
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Wall" parent="Environment" instance=ExtResource("9_ih1aw")]
+position = Vector2(0, -1)
+scale = Vector2(1, 20)
+
+[node name="Wall2" parent="Environment" instance=ExtResource("9_ih1aw")]
+position = Vector2(2511, -1)
+scale = Vector2(1, 20)
+
+[node name="Floor" parent="Environment" instance=ExtResource("10_j8fts")]
+position = Vector2(13, 1158)
+scale = Vector2(20, 1)
+
+[node name="TeleportArea" parent="." instance=ExtResource("11_4lfdu")]
+position = Vector2(2285, 674)
+scale = Vector2(2, 2)
+shouldExam = true
+teleportFrom = "StartToom"
+teleportName = "1"
+
+[node name="Player" parent="." instance=ExtResource("12_5fc0i")]
+position = Vector2(337, 717)
+scale = Vector2(2, 2)
+
+[node name="UI" parent="." instance=ExtResource("13_ule32")]

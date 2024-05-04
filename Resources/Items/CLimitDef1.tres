@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://chrehi12dbe1j"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_xovic"]
+[ext_resource type="Texture2D" uid="uid://bj4k4ftk2yuve" path="res://Sprites/UI/PaperVar1.png" id="2_bbcpd"]
+[ext_resource type="Texture2D" uid="uid://c0vc80gnnw8h2" path="res://Sprites/UI/PaperVar1Hovered.png" id="3_qa1qd"]
+
+[resource]
+script = ExtResource("1_xovic")
+uniqueId = "c_limitdef1"
+title = "Определение предела"
+description = "Число А называется пределом функции y = f(x) в точке x0, если для любого ε > 0, существует такое"
+texture = ExtResource("2_bbcpd")
+textureHovered = ExtResource("3_qa1qd")

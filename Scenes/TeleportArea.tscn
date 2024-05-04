@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccv0316dswlss"]
 
 [ext_resource type="Script" path="res://Scripts/TeleportArea.gd" id="1_2re8b"]
-[ext_resource type="Texture2D" uid="uid://dmkp1sw5fshsn" path="res://Sprites/UI/PlaceholderIcon.png" id="2_b4l7a"]
+[ext_resource type="Texture2D" uid="uid://de6hqat4qlo4q" path="res://Sprites/UI/PlaceholderIcon.png" id="2_b4l7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beoo2"]
 size = Vector2(133, 293)

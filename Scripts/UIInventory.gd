@@ -1,32 +1,38 @@
 class_name UIInventory extends Control
-var _inventory: Inventory = null; 
+var inventory: Inventory = null: 
+	set = _setInventory; 
 
 const _slot = preload("res://Scenes/UIInventorySlot.tscn")
 
-@onready var _slotContainer = $ItemContainer/VBox/Control;
+@onready var _slotContainer = $ItemContainer/VBox/Control as Control;
 @onready var _selectedSlotContainer = $SelectedItemContainer/SelectedSlot;
 
-func addItem(item: Item):
-	_inventory.addItem(item);
+func addItem(itemUniqueId: String):
+	inventory.addItem(itemUniqueId);
 	_update();
 	return true;
 
+func _setInventory(new_inventory: Inventory) -> void:
+	if inventory != new_inventory:
+		new_inventory.changed.connect(_update);
+	inventory = new_inventory
+	_update()
+
 func _ready():
-	_inventory = Inventory.new();
+	inventory = Inventory.new();
 	if visible:
 		toggleVisibility();
 
 func _update():
 	#print(inventory);
-	for item in _slotContainer.get_children():
-		item.queue_free();
+	for slot in _slotContainer.get_children():
+		slot.queue_free();
 		
-	for item in _inventory.items:
-		#var _newItem: Item = _inventory.items[-1];
-		var _newSlot = _slot.instantiate();
-		_newSlot.setItem(item);
-		_newSlot.itemSelected.connect(_onItemSelection);
-		_slotContainer.add_child(_newSlot)
+	for itemUniqueId: String in inventory.items:
+		var ui_item: UISlot = _slot.instantiate();
+		_slotContainer.add_child(ui_item)
+		ui_item.itemSelected.connect(_onItemSelection);
+		ui_item.setItem(itemUniqueId)
 	
 
 func toggleVisibility():
@@ -38,5 +44,5 @@ func _input(event):
 		toggleVisibility();
 			
 
-func _onItemSelection(item):
-	_selectedSlotContainer.setItem(item);
+func _onItemSelection(itemUniqueId):
+	_selectedSlotContainer.setItem(itemUniqueId);

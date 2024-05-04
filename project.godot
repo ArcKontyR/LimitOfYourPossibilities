@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 JsonParser="*res://Scripts/JSONParser.gd"
 GlobalSettings="*res://Scripts/GlobalSettings.gd"
+ItemDatabase="*res://Scripts/ItemDatabase.gd"
 
 [display]
 

@@ -6,8 +6,8 @@ class_name Teleport extends Area2D
 @export var teleportTo: String;
 @export var teleportName: String;
 
-@onready var player = get_viewport().get_node("Root/Player");
-@onready var task = get_viewport().get_node("Root/UI/TaskContainer");
+@onready var player = get_parent().get_node("Player");
+@onready var task = get_parent().get_node("UI/TaskContainer");
 
 
 func _on_body_entered(body):
@@ -51,9 +51,10 @@ func teleport(interactedItem: Teleport):
 func _teleport(interactedItem: Teleport):
 	if (task.checkSuccessful.is_connected(_teleport)): 
 		task.checkSuccessful.disconnect(_teleport);
-	var currentLevel: Map = get_viewport().get_node("Root/%s" % interactedItem.teleportFrom)
+	#var currentLevel: Map = get_viewport().get_node(interactedItem.teleportFrom)
 	if interactedItem.teleportTo != "": 
-		var level: Map = get_viewport().get_node("Root/%s" % interactedItem.teleportTo)
-		level.toggleLevel();
-		currentLevel.toggleLevel(); 
+		#var level: Map = get_viewport().get_node(interactedItem.teleportTo)
+		#level.toggleLevel();
+		#currentLevel.toggleLevel(); 
+		get_tree().change_scene_to_file("res://Scenes/Levels/%s.tscn" % interactedItem.teleportTo);
 	

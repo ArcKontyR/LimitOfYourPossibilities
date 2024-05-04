@@ -1,13 +1,18 @@
+class_name UISlot
 extends TextureButton
 
-signal itemSelected(item: Item);
+signal itemSelected(itemUniqueId: String);
 
-var _Item: Item;
+var itemUniqueId: String;
+@onready var texture_rect := $TextureRect;
+@onready var name_label := $Label;
 
-func setItem(_item: Item):
-	_Item = _item;
-	$TextureRect.texture = _Item.getTexture();
-	$Label.text = _Item.getName();
+func setItem(unique_id: String) -> void:
+	itemUniqueId = unique_id;
+
+	var data = ItemDatabase.get_item_data(unique_id);
+	texture_rect.texture = data.texture;
+	name_label.text = data.title;
 
 func _on_pressed():
-	itemSelected.emit(_Item);
+	itemSelected.emit(itemUniqueId);

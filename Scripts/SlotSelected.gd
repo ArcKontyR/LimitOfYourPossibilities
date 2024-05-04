@@ -1,9 +1,17 @@
 extends Panel
 
-var _Item: Item = null;
+var item: Item = null;
 
-func setItem(_item: Item):
-	_Item = _item;
-	$TextureRect.texture = _Item.getTexture();
-	$Name.text = _Item.getName();
-	$Description.text = _Item.getDescription();
+var itemUniqueId: String;
+@onready var texture_rect := $TextureRect;
+@onready var name_label := $Name;
+@onready var description := $Description;
+
+func setItem(unique_id: String) -> void:
+	itemUniqueId = unique_id;
+
+	var data: Item = ItemDatabase.get_item_data(unique_id);
+	texture_rect.texture = data.texture;
+	name_label.text = data.title;
+	description.text = data.description;
+	

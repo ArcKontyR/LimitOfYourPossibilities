@@ -1,20 +1,17 @@
 extends CharacterBody2D
 
-
 signal teleportInitiate;
 
-const SPEED: float = 150.0
-const SPRINT_MULTIPLIER: float = 1.8;
+var stats: PlayerStatistics = PlayerStatistics.new();
 
-var currentSpeed = SPEED;
-
-@onready var inventory: UIInventory = get_viewport().get_node("Root/UI/Inventory");
-@onready var task: TaskContainer = get_viewport().get_node("Root/UI/TaskContainer");
+@onready var inventory: UIInventory = get_parent().get_node("UI/Inventory");
+@onready var task: TaskContainer = get_parent().get_node("UI/TaskContainer");
 var animationTree: AnimationTree;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: float;
+var currentSpeed = stats.speed;
 
 func _ready():
 	animationTree = $WAnimationTree if GlobalSettings.playerGender == GlobalSettings.Gender.FEMALE else $MAnimationTree;
@@ -33,9 +30,9 @@ func _physics_process(delta):
 	#if Input.is_action_just_pressed("up") and is_on_floor():
 		#velocity.y = JUMP_VELOCITY
 	
-	currentSpeed = SPEED;
+	currentSpeed = stats.speed;
 	if Input.is_action_pressed("sprint"):
-		currentSpeed *= SPRINT_MULTIPLIER;
+		currentSpeed *= stats.sprintMultiplier;
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -50,9 +47,10 @@ func _physics_process(delta):
 func _input(_event):
 	if (Input.is_action_just_pressed("interact") && has_meta("collidesWith")):
 		var interactedItem = get_meta("collidesWith");
-		if (interactedItem is Item):
-			print("Collides with: %s" % interactedItem.getName());
-			var isAdded = inventory.addItem(interactedItem);
+		print(interactedItem);
+		if (interactedItem is UIItem):
+			print("Collides with: %s" % interactedItem.item.title);
+			var isAdded = inventory.addItem(interactedItem.item.uniqueId);
 			if isAdded:
 				interactedItem.disable();
 		if (interactedItem is Teleport):

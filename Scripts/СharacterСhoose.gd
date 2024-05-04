@@ -15,4 +15,4 @@ func _on_character_selection():
 			GlobalSettings.playerGender = GlobalSettings.Gender.MALE;
 
 func _on_start_game_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Root.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/Room1.tscn")

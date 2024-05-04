@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dol368dtcvek5"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_xdvvp"]
+[ext_resource type="Texture2D" uid="uid://bsg1i42spcqy" path="res://Sprites/UI/PaperVar2.png" id="2_b5402"]
+[ext_resource type="Texture2D" uid="uid://y66k1v58jxx2" path="res://Sprites/UI/PaperVar2Hovered.png" id="3_0dvvs"]
+
+[resource]
+script = ExtResource("1_xdvvp")
+uniqueId = "c_limitdef_3"
+title = "Определение предела"
+description = "Число А называется пределом функции y = f(x) в точке x0, если для любого ε > 0, существует такое число h>0,что для всех точек,удовлетворяющих условию: 0 < |x-x0|<h (x≠x0) выполняется неравенство: |f(x) - A| < ε (∀ ε>0:∃ h>0: 0 < |x-x0|<h (x≠x0)  |f(x) - A| < ε).Определение попроще: пределом функции называют число, к которому стремится функция в данной точке."
+texture = ExtResource("2_b5402")
+textureHovered = ExtResource("3_0dvvs")
