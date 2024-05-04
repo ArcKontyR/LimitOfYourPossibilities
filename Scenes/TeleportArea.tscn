@@ -11,12 +11,12 @@ script = ExtResource("1_2re8b")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -103.0
-offset_top = -166.0
+offset_top = -334.0
 offset_right = 105.0
-offset_bottom = 168.0
 texture = ExtResource("2_b4l7a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -146)
 shape = SubResource("RectangleShape2D_beoo2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

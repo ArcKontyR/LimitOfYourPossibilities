@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://5un22ev8q44w"]
 
-[ext_resource type="Texture2D" uid="uid://cu2d5mtwlii6p" path="res://Sprites/UI/TaskSlotEmpty.png" id="1_6cl5p"]
-[ext_resource type="Script" path="res://Scripts/TaskSlot.gd" id="1_mei7k"]
+[ext_resource type="Texture2D" uid="uid://cu2d5mtwlii6p" path="res://Sprites/UI/TaskSlotEmpty.png" id="1_4cwcv"]
+[ext_resource type="Script" path="res://Scripts/TaskSlot.gd" id="2_d5mf5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ara7m"]
-texture = ExtResource("1_6cl5p")
+texture = ExtResource("1_4cwcv")
 
 [node name="TaskSlot" type="Panel"]
 custom_minimum_size = Vector2(120, 64)
 mouse_default_cursor_shape = 13
 theme_override_styles/panel = SubResource("StyleBoxTexture_ara7m")
-script = ExtResource("1_mei7k")
+script = ExtResource("2_d5mf5")

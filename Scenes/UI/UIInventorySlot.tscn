@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://d2h0o0iivfvrs"]
 
-[ext_resource type="Texture2D" uid="uid://bhejyg6om4st" path="res://Sprites/UI/InventorySlot.png" id="1_2phfe"]
-[ext_resource type="Script" path="res://Scripts/Slot.gd" id="2_8fgxq"]
-[ext_resource type="Texture2D" uid="uid://co18jm5j0a6a2" path="res://Sprites/UI/InventorySlotSelected.png" id="2_ect0n"]
-[ext_resource type="Texture2D" uid="uid://cl3ld17qbwctj" path="res://Sprites/UI/InventorySlotHovered.png" id="3_j0tl7"]
-[ext_resource type="Texture2D" uid="uid://de6hqat4qlo4q" path="res://Sprites/UI/PlaceholderIcon.png" id="3_w2yf1"]
+[ext_resource type="Texture2D" uid="uid://bhejyg6om4st" path="res://Sprites/UI/InventorySlot.png" id="1_2vdlk"]
+[ext_resource type="Texture2D" uid="uid://co18jm5j0a6a2" path="res://Sprites/UI/InventorySlotSelected.png" id="2_53vmf"]
+[ext_resource type="Texture2D" uid="uid://cl3ld17qbwctj" path="res://Sprites/UI/InventorySlotHovered.png" id="3_yi6cc"]
+[ext_resource type="Script" path="res://Scripts/Slot.gd" id="4_ebsri"]
+[ext_resource type="Texture2D" uid="uid://de6hqat4qlo4q" path="res://Sprites/UI/PlaceholderIcon.png" id="5_24bn6"]
 
 [sub_resource type="SystemFont" id="SystemFont_onluv"]
 font_names = PackedStringArray("Cascadia Code")
@@ -19,12 +19,12 @@ shadow_offset = Vector2(2, 2)
 
 [node name="InventorySlot" type="TextureButton"]
 custom_minimum_size = Vector2(256, 64)
-texture_normal = ExtResource("1_2phfe")
-texture_pressed = ExtResource("2_ect0n")
-texture_hover = ExtResource("3_j0tl7")
+texture_normal = ExtResource("1_2vdlk")
+texture_pressed = ExtResource("2_53vmf")
+texture_hover = ExtResource("3_yi6cc")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("2_8fgxq")
+script = ExtResource("4_ebsri")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -32,7 +32,7 @@ offset_left = 6.0
 offset_top = 6.0
 offset_right = 59.0
 offset_bottom = 59.0
-texture = ExtResource("3_w2yf1")
+texture = ExtResource("5_24bn6")
 expand_mode = 2
 stretch_mode = 5
 

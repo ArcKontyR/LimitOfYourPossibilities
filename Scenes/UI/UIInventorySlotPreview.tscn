@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://hjd2q7nwpans"]
 
-[ext_resource type="Texture2D" uid="uid://bhejyg6om4st" path="res://Sprites/UI/InventorySlot.png" id="1_lvljd"]
-[ext_resource type="Script" path="res://Scripts/SlotSelected.gd" id="2_btmkj"]
-[ext_resource type="Texture2D" uid="uid://de6hqat4qlo4q" path="res://Sprites/UI/PlaceholderIcon.png" id="3_0nnxy"]
+[ext_resource type="Texture2D" uid="uid://bhejyg6om4st" path="res://Sprites/UI/InventorySlot.png" id="1_2b4wy"]
+[ext_resource type="Script" path="res://Scripts/SlotSelected.gd" id="2_emihu"]
+[ext_resource type="Texture2D" uid="uid://de6hqat4qlo4q" path="res://Sprites/UI/PlaceholderIcon.png" id="3_co0an"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_um02o"]
-texture = ExtResource("1_lvljd")
+texture = ExtResource("1_2b4wy")
 
 [sub_resource type="SystemFont" id="SystemFont_3sykc"]
 font_names = PackedStringArray("Cascadia Code")
@@ -27,7 +27,7 @@ offset_bottom = -213.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_um02o")
-script = ExtResource("2_btmkj")
+script = ExtResource("2_emihu")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -35,7 +35,7 @@ offset_left = 25.0
 offset_top = 25.0
 offset_right = 140.0
 offset_bottom = 135.0
-texture = ExtResource("3_0nnxy")
+texture = ExtResource("3_co0an")
 expand_mode = 2
 stretch_mode = 5
 

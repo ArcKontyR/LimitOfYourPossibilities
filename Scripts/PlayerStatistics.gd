@@ -6,3 +6,4 @@ extends Resource
 @export var sprintMultiplier: float = 1.8;
 @export var currentMap: String = "";
 @export var position: Vector2 = Vector2.ZERO;
+@export var prevPosition: Vector2 = Vector2.ZERO;

@@ -11,21 +11,22 @@ class_name Teleport extends Area2D
 
 
 func _on_body_entered(body):
-	if (body.name == "Player"):
-		print("Player on area");
-		print("area should exam - %s" % shouldExam)
-		if body.teleportInitiate.get_connections().size() > 0:
-			print("something is connected")
-			var connections: Array = body.teleportInitiate.get_connections();
-			for i in connections.size():
-				print("last teleport entry disconnected");
-				body.teleportInitiate.disconnect(connections[i]["callable"]);
-		if (body.teleportInitiate.is_connected(teleport)):
-			print("teleport disconnected");
-			body.teleportInitiate.disconnect(teleport);
-		print("teleport connected");
-		body.teleportInitiate.connect(teleport);
-		body.set_meta("collidesWith", self)
+	if (body.name != "Player"):
+		return;
+	print("Player on area");
+	print("area should exam - %s" % shouldExam)
+	if body.teleportInitiate.get_connections().size() > 0:
+		print("something is connected")
+		var connections: Array = body.teleportInitiate.get_connections();
+		for i in connections.size():
+			print("last teleport entry disconnected");
+			body.teleportInitiate.disconnect(connections[i]["callable"]);
+	if (body.teleportInitiate.is_connected(teleport)):
+		print("teleport disconnected");
+		body.teleportInitiate.disconnect(teleport);
+	print("teleport connected");
+	body.teleportInitiate.connect(teleport);
+	body.set_meta("collidesWith", self)
 
 func _on_body_exited(body):
 	
@@ -57,4 +58,7 @@ func _teleport(interactedItem: Teleport):
 		#level.toggleLevel();
 		#currentLevel.toggleLevel(); 
 		get_tree().change_scene_to_file("res://Scenes/Levels/%s.tscn" % interactedItem.teleportTo);
+	
+
+
 	

@@ -2,7 +2,7 @@ class_name UIInventory extends Control
 var inventory: Inventory = null: 
 	set = _setInventory; 
 
-const _slot = preload("res://Scenes/UIInventorySlot.tscn")
+const _slot = preload("res://Scenes/UI/UIInventorySlot.tscn")
 
 @onready var _slotContainer = $ItemContainer/VBox/Control as Control;
 @onready var _selectedSlotContainer = $SelectedItemContainer/SelectedSlot;

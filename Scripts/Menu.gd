@@ -2,13 +2,9 @@ extends Control
 
 func _on_start_pressed():
 	_create_or_load_save();
-		
-	
-
 
 func _on_settings_pressed():
 	print("Здесь могла быть ваша реклама");
-
 
 func _on_exit_pressed():
 	get_tree().quit();

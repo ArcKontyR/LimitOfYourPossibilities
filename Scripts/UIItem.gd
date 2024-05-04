@@ -5,11 +5,11 @@ class_name UIItem extends Area2D
 
 func _ready():
 	$TextureRect.texture = item.texture;
-	print("this item has %s unique id" % item.uniqueId);
+	#print("this item has %s unique id" % item.uniqueId);
 	if (GlobalSettings.save.inventory.items.find(item.uniqueId) != -1):
-		print("item exists in inventory - %s" % item.uniqueId);
+		print_rich("item exists in inventory - %s, [color=orange]disabling...[/color]" % item.uniqueId);
 		#print("items holded: %s" % [GlobalSettings.save.inventory.items]);
-		print("disabling...");
+		
 		disable();
 
 func disable():

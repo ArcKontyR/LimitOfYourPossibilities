@@ -13,20 +13,26 @@ func _ready() -> void:
 	
 func _input(event):
 	if (Input.is_action_pressed("back")):
-		_save_game();
+		_saveGame();
 		get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 
 func _load_save():
-	# After creating or loading a save resource, we need to dispatch its data
-	# to the various nodes that need it.
-	if (GlobalSettings.save.player.position != Vector2.ZERO):
-		_player.set_position(GlobalSettings.save.player.position);
+	print("current saved map - %s" % GlobalSettings.save.player.currentMap);
+	print("this map - %s" % name);
+		
+	if (GlobalSettings.save.player.position == Vector2.ZERO or GlobalSettings.save.player.currentMap != name):
+		print_rich("saved position is null = [color=orange]%s[/color]" % [GlobalSettings.save.player.position == Vector2.ZERO]);
+		print_rich("saved map is not current = [color=orange]%s[/color]" % [GlobalSettings.save.player.currentMap != name]);
+		print("saved position - %s" % GlobalSettings.save.player.position);
+		print("saving position - %s" % _player.position);
+		GlobalSettings.save.player.position = _player.position;
+		#GlobalSettings.save.write_savegame();
+	
+	_player.set_position(GlobalSettings.save.player.position);
 	_ui_inventory.inventory = GlobalSettings.save.inventory;
 	_player.stats = GlobalSettings.save.player;
 
-
-func _save_game() -> void:
-	print("saved position - %s" % GlobalSettings.save.player.position);
-	print("saving position - %s" % _player.position);
+func _saveGame() -> void:
+	GlobalSettings.save.player.currentMap = name;
 	GlobalSettings.save.player.position = _player.position;
-	GlobalSettings.save.write_savegame()
+	GlobalSettings.save.write_savegame();
