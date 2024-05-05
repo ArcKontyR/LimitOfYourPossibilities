@@ -20,13 +20,17 @@ func _load_save():
 	print("current saved map - %s" % GlobalSettings.save.player.currentMap);
 	print("this map - %s" % name);
 		
-	if (GlobalSettings.save.player.position == Vector2.ZERO or GlobalSettings.save.player.currentMap != name):
+	if (GlobalSettings.save.player.position == Vector2.ZERO):
 		print_rich("saved position is null = [color=orange]%s[/color]" % [GlobalSettings.save.player.position == Vector2.ZERO]);
 		print_rich("saved map is not current = [color=orange]%s[/color]" % [GlobalSettings.save.player.currentMap != name]);
 		print("saved position - %s" % GlobalSettings.save.player.position);
 		print("saving position - %s" % _player.position);
 		GlobalSettings.save.player.position = _player.position;
 		#GlobalSettings.save.write_savegame();
+	if (GlobalSettings.save.player.previousMap != name):
+		var prevMapPos = GlobalSettings.save.player.lastMapPositions.get(name);
+		print_rich("[color=lightblue]%s[/color] position loading from [color=green]%s[/color] map" % [prevMapPos, name])
+		GlobalSettings.save.player.position = prevMapPos if prevMapPos != null else _player.position;
 	
 	_player.set_position(GlobalSettings.save.player.position);
 	_ui_inventory.inventory = GlobalSettings.save.inventory;
@@ -35,4 +39,5 @@ func _load_save():
 func _saveGame() -> void:
 	GlobalSettings.save.player.currentMap = name;
 	GlobalSettings.save.player.position = _player.position;
+	GlobalSettings.save.player.lastMapPositions[name] = _player.position;
 	GlobalSettings.save.write_savegame();

@@ -57,6 +57,8 @@ func _teleport(interactedItem: Teleport):
 		#var level: Map = get_viewport().get_node(interactedItem.teleportTo)
 		#level.toggleLevel();
 		#currentLevel.toggleLevel(); 
+		GlobalSettings.save.player.lastMapPositions[teleportFrom] = player.position;
+		GlobalSettings.save.player.previousMap = teleportFrom;
 		get_tree().change_scene_to_file("res://Scenes/Levels/%s.tscn" % interactedItem.teleportTo);
 	
 

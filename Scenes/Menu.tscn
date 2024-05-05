@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cltl651iairpv"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_g6yeu"]
-[ext_resource type="Texture2D" uid="uid://d3qdeg8dgb05y" path="res://Sprites/Background/Menu.jpg" id="1_i6wo8"]
+[ext_resource type="Texture2D" uid="uid://biom84sp1kisu" path="res://Sprites/Background/MenuNew.jpg" id="2_2qog5"]
 [ext_resource type="Texture2D" uid="uid://dkb5m0mwfxfbp" path="res://Sprites/UI/MainMenuButtons/StartGameNormal.png" id="2_htf03"]
 [ext_resource type="Texture2D" uid="uid://br14s0phuavmh" path="res://Sprites/UI/MainMenuButtons/StartGamePressed.png" id="3_p81b2"]
 [ext_resource type="Texture2D" uid="uid://dws1kb88d0r13" path="res://Sprites/UI/MainMenuButtons/StartGameHovered.png" id="4_2sfu8"]
@@ -28,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_i6wo8")
+texture = ExtResource("2_2qog5")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -47,6 +47,7 @@ theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
