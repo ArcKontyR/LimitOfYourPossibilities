@@ -5,6 +5,7 @@ const SAVE_GAME_BASE_PATH := "user://save"
 
 @export var player: Resource = PlayerStatistics.new();
 @export var inventory: Resource = Inventory.new();
+@export var map: Resource = Map.new();
 
 func write_savegame() -> void:
 	print_rich("[color=green]saving...[/color]");

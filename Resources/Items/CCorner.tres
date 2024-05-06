@@ -7,7 +7,9 @@
 [resource]
 script = ExtResource("1_ucjyr")
 uniqueId = "c_corner"
+groupId = ""
 title = "Кусок конспекта"
 description = "Оторванный уголок конспекта"
+amount = 1
 texture = ExtResource("2_o2nx7")
 textureHovered = ExtResource("3_3b4on")

@@ -5,7 +5,9 @@ extends Node2D
 func _ready() -> void:
 	#_ui_save_panel.reload_requested.connect(_create_or_load_save)
 	#_ui_save_panel.save_requested.connect(_save_game)
-	
+	if (GlobalSettings.save.map.pickedItems.get(name) == null):
+		print("Map items is not saved")
+		GlobalSettings.save.map.pickedItems[name] = [];
 	# And the start of the game or when pressing the load button, we call this
 	# function. It loads the save data if it exists, otherwise, it creates a 
 	# new save file.
@@ -32,6 +34,8 @@ func _load_save():
 		print_rich("[color=lightblue]%s[/color] position loading from [color=green]%s[/color] map" % [prevMapPos, name])
 		GlobalSettings.save.player.position = prevMapPos if prevMapPos != null else _player.position;
 	
+	
+		
 	_player.set_position(GlobalSettings.save.player.position);
 	_ui_inventory.inventory = GlobalSettings.save.inventory;
 	_player.stats = GlobalSettings.save.player;
