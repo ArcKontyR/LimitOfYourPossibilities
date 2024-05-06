@@ -8,20 +8,21 @@ var slot_index;
 signal slotItemChanged;
 
 func clearItem():
-	remove_child(item)
+	remove_child(item);
 	item = null;
 	
 func getItem():
-	remove_child(item)
-	UI.add_child(item)
+	remove_child(item);
+	UI.add_child(item);
 	slotItemChanged.emit();
 	var _item = item;
 	item = null;
 	return _item;
 	
 func setItem(new_item):
-	item = new_item
-	item.position = Vector2(0, 0)
-	UI.remove_child(item)
-	add_child(item)
+	item = new_item;
+	item.position = Vector2(0, 0);
+	if item.get_parent() != null:
+		UI.remove_child(item);
+	add_child(item);
 	slotItemChanged.emit();

@@ -73,6 +73,7 @@ scale = Vector2(20, 1)
 [node name="TeleportArea" parent="." instance=ExtResource("11_4lfdu")]
 position = Vector2(2286, 1010)
 scale = Vector2(2, 2)
+shouldExam = true
 teleportFrom = "Room1"
 teleportTo = "Corridor1"
 teleportName = "1"

@@ -9,6 +9,7 @@ z_as_relative = false
 script = ExtResource("1_lp3nm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
 custom_minimum_size = Vector2(120, 64)
 offset_right = 40.0
 offset_bottom = 40.0
