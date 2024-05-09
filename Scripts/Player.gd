@@ -6,6 +6,7 @@ var stats: PlayerStatistics = PlayerStatistics.new();
 
 @onready var inventory: UIInventory = get_parent().get_node("UI/Inventory");
 @onready var task: TaskContainer = get_parent().get_node("UI/TaskContainer");
+@onready var currentMapName = get_parent().name;
 var animationTree: AnimationTree;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -50,7 +51,12 @@ func _input(_event):
 		print(interactedItem);
 		if (interactedItem is UIItem):
 			print("Collides with: %s" % interactedItem.item.title);
-			var isAdded = inventory.addItem(interactedItem.item.uniqueId);
+			var groupIdExists = true if interactedItem.item.groupId != "" else false;
+			interactedItem.picked = true;
+			var isAdded = inventory.addItem(interactedItem.item.uniqueId if !groupIdExists else interactedItem.item.groupId);
+			var savedMapItems: Array = GlobalSettings.save.map.pickedItems[currentMapName]
+			savedMapItems.push_back(interactedItem.name);
+			GlobalSettings.save.map.pickedItems[currentMapName] = savedMapItems;
 			if isAdded:
 				interactedItem.disable();
 		if (interactedItem is Teleport):

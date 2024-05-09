@@ -3,9 +3,9 @@ extends Panel
 var item: Item = null;
 
 var itemUniqueId: String;
-@onready var texture_rect := $TextureRect;
-@onready var name_label := $Name;
-@onready var description := $Description;
+@onready var texture_rect = $TextureRect;
+@onready var name_label = $Name;
+@onready var description = $Description;
 
 func setItem(unique_id: String) -> void:
 	itemUniqueId = unique_id;

@@ -86,8 +86,8 @@ func startExam():
 	toggleVisibility();
 	if (visible):
 		randomize();
-		var limitNumber: int = randi_range(1,2);
-		loadLimitAsJSON("res://Tasks/Definitions/testLim%s.json" % limitNumber);
+		var limitNumber: int = randi_range(1,3);
+		loadLimitAsJSON("res://Tasks/Definitions/lim%s.json" % limitNumber);
 		
 func left_click_empty_slot(slot: TaskSlot):
 		slot.setItem(UI.holdingItem)

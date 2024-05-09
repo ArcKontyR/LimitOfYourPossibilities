@@ -7,7 +7,7 @@ func _on_settings_pressed():
 	print("Здесь могла быть ваша реклама");
 
 func _on_exit_pressed():
-	get_tree().quit();
+	GlobalSettings._notification(NOTIFICATION_WM_CLOSE_REQUEST);
 
 func _create_or_load_save() -> void:
 	print("on creation");
@@ -22,6 +22,7 @@ func _create_or_load_save() -> void:
 
 		GlobalSettings.save.player.currentMap = "Room1";
 		GlobalSettings.save.player.position = Vector2.ZERO;
+		GlobalSettings.save.map.pickedItems[GlobalSettings.save.player.currentMap] = [];
 
 		GlobalSettings.save.write_savegame();
 		print("choosing character");

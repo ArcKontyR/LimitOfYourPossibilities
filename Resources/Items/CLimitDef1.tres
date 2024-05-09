@@ -7,7 +7,9 @@
 [resource]
 script = ExtResource("1_4263v")
 uniqueId = "c_limitdef_1"
+groupId = "g_c_limitdef"
 title = "Определение предела"
 description = "Число А называется пределом функции y = f(x) в точке x0, если для любого ε > 0, существует такое"
+amount = 1
 texture = ExtResource("2_pwv0x")
 textureHovered = ExtResource("3_61j22")

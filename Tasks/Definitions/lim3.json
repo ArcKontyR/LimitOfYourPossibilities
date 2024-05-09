@@ -1,0 +1,26 @@
+{
+	"Name": "lim3",
+	"Path": "Images/lim3/",
+	"Parts": [
+		{
+			"PictureName": "L3_1.png",
+			"CompareCode": 1
+		},
+		{
+			"PictureName": "L3_2.png",
+			"CompareCode": 2
+		},
+		{
+			"PictureName": "L3_3.png",
+			"CompareCode": 3
+		},
+		{
+			"PictureName": "L3_4.png",
+			"CompareCode": 4
+		},
+		{
+			"PictureName": "L3_5.png",
+			"CompareCode": 5
+		}
+	]
+}
