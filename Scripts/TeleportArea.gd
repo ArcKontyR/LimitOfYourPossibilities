@@ -11,7 +11,7 @@ class_name Teleport extends Area2D
 
 
 func _on_body_entered(body):
-	if (body.name != "Player"):
+	if (not body is Player):
 		return;
 	print("Player on area");
 	print("area should exam - %s" % shouldExam)
@@ -30,7 +30,7 @@ func _on_body_entered(body):
 
 func _on_body_exited(body):
 	
-	if (body.name == "Player" && 
+	if (body is Player && 
 		body.has_meta("collidesWith") && 
 		body.get_meta("collidesWith") == self):
 		print("Player exited area");

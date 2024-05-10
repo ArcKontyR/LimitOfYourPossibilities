@@ -54,7 +54,7 @@ position = Vector2(1087, 1080)
 item = ExtResource("8_4vesa")
 
 [node name="Environment" type="Control" parent="."]
-z_index = -1
+visible = false
 layout_mode = 3
 anchors_preset = 0
 

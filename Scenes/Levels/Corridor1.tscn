@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnajifx3xekly"]
+[gd_scene load_steps=11 format=3 uid="uid://bnajifx3xekly"]
 
 [ext_resource type="Texture2D" uid="uid://dkdj01kgb40ag" path="res://Sprites/Background/CorridorBackground.jpg" id="1_j26hh"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_mwhlq"]
@@ -7,6 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://ccv0316dswlss" path="res://Scenes/TeleportArea.tscn" id="4_u2bqs"]
 [ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Player.tscn" id="5_sxa80"]
 [ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI/UI.tscn" id="6_5pmrp"]
+[ext_resource type="PackedScene" uid="uid://b7kxn50j6vw0h" path="res://Scenes/Teacher.tscn" id="8_5hgnt"]
+[ext_resource type="Script" path="res://Scenes/Levels/EnemyPatrol.gd" id="8_k2qfy"]
+
+[sub_resource type="Curve2D" id="Curve2D_f34fv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1561.25, 700, 0, 0, 0, 0, 42.5, 700)
+}
+point_count = 2
 
 [node name="Corridor1" type="Node2D"]
 scale = Vector2(0.8, 0.8)
@@ -24,6 +32,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Environment" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -47,6 +56,21 @@ scale = Vector2(1.2, 1.2)
 teleportFrom = "Corridor1"
 teleportTo = "Room1"
 teleportName = "2"
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_f34fv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(801.875, 700)
+rotation = 3.14159
+progress = 759.375
+loop = false
+script = ExtResource("8_k2qfy")
+
+[node name="Teacher" parent="Path2D/PathFollow2D" instance=ExtResource("8_5hgnt")]
+position = Vector2(0, 290)
+rotation = 3.14159
+scale = Vector2(1.2, 1.2)
 
 [node name="Player" parent="." instance=ExtResource("5_sxa80")]
 position = Vector2(2325, 428)
