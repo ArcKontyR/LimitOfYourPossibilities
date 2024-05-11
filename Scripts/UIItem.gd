@@ -8,8 +8,7 @@ class_name UIItem extends Area2D
 func _ready():
 	$TextureRect.texture = item.texture;
 	#print("this item has %s unique id" % item.uniqueId);
-	print_rich("item exists in inventory - [color=orange]%s[/color]" % ["true" if GlobalSettings.save.inventory.items.get(item.uniqueId) != null else "false"]);
-	print(GlobalSettings.save.map.pickedItems);
+	print_rich("%s exists in inventory - [color=orange]%s[/color]" % [item.uniqueId, "true" if GlobalSettings.save.inventory.items.get(item.uniqueId) != null else "false"]);
 	if (GlobalSettings.save.map.pickedItems[currentMapName].find(name) != -1):
 		print_rich("[color=orange]disabling %s...[/color], " % item.uniqueId);
 		#print("items holded: %s" % [GlobalSettings.save.inventory.items]);
