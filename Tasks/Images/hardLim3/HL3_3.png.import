@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cptyn8pq0lv4f"
-path="res://.godot/imported/Bomb.png-a6be97041c1f9277256cfa09241d2fd3.ctex"
+uid="uid://bdddeboyyrns8"
+path="res://.godot/imported/HL3_3.png-375bc7016a48ea89f9a2322692eb3baf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Bomb.png"
-dest_files=["res://.godot/imported/Bomb.png-a6be97041c1f9277256cfa09241d2fd3.ctex"]
+source_file="res://Tasks/Images/hardLim3/HL3_3.png"
+dest_files=["res://.godot/imported/HL3_3.png-375bc7016a48ea89f9a2322692eb3baf.ctex"]
 
 [params]
 

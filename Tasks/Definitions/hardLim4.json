@@ -1,0 +1,24 @@
+{
+	"unique_id": "h4",
+	"Name": "hardLim4",
+	"Path": "Images/hardLim4/",
+	"Parts": [
+		{
+			"PictureName": "HL4_1.png",
+			"CompareCode": 1
+		},
+		{
+			"PictureName": "HL4_2.png",
+			"CompareCode": 2
+		},
+		{
+			"PictureName": "HL4_3.png",
+			"CompareCode": 3
+		},
+		{
+			"PictureName": "HL4_4.png",
+			"CompareCode": 4
+		}
+	],
+	"Answer": 3
+}

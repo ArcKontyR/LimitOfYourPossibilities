@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7kxn50j6vw0h"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_1dlcc"]
-[ext_resource type="Texture2D" uid="uid://c6vu0ps0ykxow" path="res://Sprites/Teacher.png" id="2_rtxel"]
+[ext_resource type="Texture2D" uid="uid://bwehn5xwysoqy" path="res://Sprites/Teacher.png" id="2_q3jfc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yxsp5"]
 radius = 225.568
@@ -25,7 +25,7 @@ offset_right = 185.5
 offset_bottom = 261.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_rtxel")
+texture = ExtResource("2_q3jfc")
 expand_mode = 1
 
 [node name="View" type="Area2D" parent="."]

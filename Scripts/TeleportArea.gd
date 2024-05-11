@@ -1,15 +1,21 @@
 class_name Teleport extends Area2D
 
 @export var shouldExam: bool = false;
+var taskComplete: bool = false;
 
 @export var teleportFrom: String;
 @export var teleportTo: String;
 @export var teleportName: String;
 
 @onready var player = get_parent().get_node("Player");
-@onready var task = get_parent().get_node("UI/TaskContainer");
+@onready var task = get_parent().get_node("UI/TaskSwitcher") as TaskSwitcher;
 
-
+func _ready():
+	var tComplete = GlobalSettings.save.map.exams.get(teleportFrom);
+	taskComplete = false if tComplete == null else tComplete;
+	task.checkSuccessful.connect(examFinished.bind(true));
+	task.checkFailed.connect(examFinished.bind(false));
+	
 func _on_body_entered(body):
 	if (not body is Player):
 		return;
@@ -41,10 +47,10 @@ func _on_body_exited(body):
 
 func teleport(interactedItem: Teleport):
 	print("teleport initiated")
-	if shouldExam:
+	if shouldExam && !taskComplete:
 		if not task.checkSuccessful.is_connected(_teleport):
 			task.checkSuccessful.connect(_teleport.bind(interactedItem))
-		task.startExam();
+		task.startExam("normal");
 	else:
 		_teleport(interactedItem);
 	
@@ -59,8 +65,12 @@ func _teleport(interactedItem: Teleport):
 		#currentLevel.toggleLevel(); 
 		GlobalSettings.save.player.lastMapPositions[teleportFrom] = player.position;
 		GlobalSettings.save.player.previousMap = teleportFrom;
+		if (GlobalSettings.save.map.pickedItems.get(teleportTo) == null):
+			print("Map items is not saved")
+			GlobalSettings.save.map.pickedItems[teleportTo] = [];
 		get_tree().change_scene_to_file("res://Scenes/Levels/%s.tscn" % interactedItem.teleportTo);
 	
-
+func examFinished(successful: bool):
+	GlobalSettings.save.map.exams[teleportFrom] = successful;
 
 	

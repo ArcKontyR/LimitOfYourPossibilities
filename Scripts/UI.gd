@@ -1,3 +1,3 @@
-extends CanvasLayer
+extends CanvasLayer	
 
 var holdingItem: TaskItem = null;

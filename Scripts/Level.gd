@@ -1,20 +1,15 @@
 extends Node2D
 @onready var _player = $Player
 @onready var _ui_inventory = $UI/Inventory
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	#_ui_save_panel.reload_requested.connect(_create_or_load_save)
-	#_ui_save_panel.save_requested.connect(_save_game)
 	if (GlobalSettings.save.map.pickedItems.get(name) == null):
 		print("Map items is not saved")
 		GlobalSettings.save.map.pickedItems[name] = [];
-	# And the start of the game or when pressing the load button, we call this
-	# function. It loads the save data if it exists, otherwise, it creates a 
-	# new save file.
 	_load_save();
 	
-func _input(event):
-	if (Input.is_action_pressed("back")):
+func _unhandled_input(event):
+	if (event.is_action_pressed("back")):
 		_saveGame();
 		get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 
@@ -34,8 +29,6 @@ func _load_save():
 		print_rich("[color=lightblue]%s[/color] position loading from [color=green]%s[/color] map" % [prevMapPos, name])
 		GlobalSettings.save.player.position = prevMapPos if prevMapPos != null else _player.position;
 	
-	
-		
 	_player.set_position(GlobalSettings.save.player.position);
 	_ui_inventory.inventory = GlobalSettings.save.inventory;
 	_player.stats = GlobalSettings.save.player;

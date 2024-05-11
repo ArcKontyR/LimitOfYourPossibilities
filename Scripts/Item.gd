@@ -7,4 +7,4 @@ extends Resource
 @export var description: String = "";
 @export var amount: int = 0;
 @export var texture: Texture = null;
-@export var textureHovered: Texture = null;
+#@export var textureHovered: Texture = null;

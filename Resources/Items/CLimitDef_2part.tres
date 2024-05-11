@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c1cnmk0s0eyh1"]
 
 [ext_resource type="Script" path="res://Scripts/Item.gd" id="1_cx0m5"]
-[ext_resource type="Texture2D" uid="uid://de6hqat4qlo4q" path="res://Sprites/UI/PlaceholderIcon.png" id="2_65sio"]
+[ext_resource type="Texture2D" uid="uid://b0gp0uc10pe0p" path="res://Sprites/UI/Book.png" id="2_qnb2o"]
 
 [resource]
 script = ExtResource("1_cx0m5")
@@ -10,4 +10,4 @@ groupId = ""
 title = "Определение предела"
 description = "Число А называется пределом функции y = f(x) в точке x0, если для любого ε > 0, существует такое число h>0,что для всех точек,удовлетворяющих условию: 0 < |x-x0|<h (x≠x0) выполняется..."
 amount = 2
-texture = ExtResource("2_65sio")
+texture = ExtResource("2_qnb2o")

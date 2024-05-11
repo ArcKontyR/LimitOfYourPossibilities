@@ -6,7 +6,7 @@ signal teleportInitiate;
 var stats: PlayerStatistics = PlayerStatistics.new();
 
 @onready var inventory: UIInventory = get_parent().get_node("UI/Inventory");
-@onready var task: TaskContainer = get_parent().get_node("UI/TaskContainer");
+@onready var task: TaskSwitcher = get_parent().get_node("UI/TaskSwitcher");
 @onready var currentMapName = get_parent().name;
 var animationTree: AnimationTree;
 

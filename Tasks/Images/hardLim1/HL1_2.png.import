@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq82uleuoyk7w"
-path="res://.godot/imported/emptyLimImage.png-f8bf606fbac9bdbe403d298baf84138b.ctex"
+uid="uid://cqth7ku6qp17a"
+path="res://.godot/imported/HL1_2.png-a24b4ef0e3bb2a40c7a4765fcc02b67a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tasks/Images/emptyLimImage.png"
-dest_files=["res://.godot/imported/emptyLimImage.png-f8bf606fbac9bdbe403d298baf84138b.ctex"]
+source_file="res://Tasks/Images/hardLim1/HL1_2.png"
+dest_files=["res://.godot/imported/HL1_2.png-a24b4ef0e3bb2a40c7a4765fcc02b67a.ctex"]
 
 [params]
 
