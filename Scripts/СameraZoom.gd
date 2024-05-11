@@ -10,11 +10,6 @@ var _canZoom = true;
 @export var minFactor = 0.8;
 @export var maxFactor = 1.2;
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	zoom.x = clamp(lerp(zoom.x, factor * zoom.x, speed * delta), minFactor, maxFactor);

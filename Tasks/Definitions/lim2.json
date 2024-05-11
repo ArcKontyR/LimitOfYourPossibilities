@@ -1,0 +1,27 @@
+{
+	"unique_id": "2",
+	"Name": "lim2",
+	"Path": "Images/lim2/",
+	"Parts": [
+		{
+			"PictureName": "L2_1.png",
+			"CompareCode": 1
+		},
+		{
+			"PictureName": "L2_2.png",
+			"CompareCode": 2
+		},
+		{
+			"PictureName": "L2_3.png",
+			"CompareCode": 3
+		},
+		{
+			"PictureName": "L2_4.png",
+			"CompareCode": 4
+		},
+		{
+			"PictureName": "L2_5.png",
+			"CompareCode": 5
+		}
+	]
+}

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://lc3ukbde538i"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_w1aft"]
+[ext_resource type="Texture2D" uid="uid://b0gp0uc10pe0p" path="res://Sprites/UI/Book.png" id="2_8vcho"]
+
+[resource]
+script = ExtResource("1_w1aft")
+uniqueId = "g_c_limitdef_3p"
+groupId = ""
+title = "Определение предела"
+description = "Число А называется пределом функции y = f(x) в точке x0, если для любого ε > 0, существует такое число h>0,что для всех точек,удовлетворяющих условию: 0 < |x-x0|<h (x≠x0) выполняется неравенство: |f(x) - A| < ε (∀ ε>0:∃ h>0: 0 < |x-x0|<h (x≠x0)  |f(x) - A| < ε). Определение попроще: пределом функции называют число, к которому стремится функция в данной точке."
+amount = 3
+texture = ExtResource("2_8vcho")

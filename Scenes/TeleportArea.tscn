@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccv0316dswlss"]
+[gd_scene load_steps=3 format=3 uid="uid://ccv0316dswlss"]
 
 [ext_resource type="Script" path="res://Scripts/TeleportArea.gd" id="1_2re8b"]
-[ext_resource type="Texture2D" uid="uid://dmkp1sw5fshsn" path="res://Sprites/UI/PlaceholderIcon.png" id="2_b4l7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beoo2"]
 size = Vector2(133, 293)
@@ -9,14 +8,8 @@ size = Vector2(133, 293)
 [node name="TeleportArea" type="Area2D"]
 script = ExtResource("1_2re8b")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -103.0
-offset_top = -166.0
-offset_right = 105.0
-offset_bottom = 168.0
-texture = ExtResource("2_b4l7a")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -146)
 shape = SubResource("RectangleShape2D_beoo2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

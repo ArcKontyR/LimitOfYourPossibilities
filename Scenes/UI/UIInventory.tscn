@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://jqfitwl0ontt"]
+
+[ext_resource type="Script" path="res://Scripts/UIInventory.gd" id="1_g8wqq"]
+[ext_resource type="PackedScene" uid="uid://hjd2q7nwpans" path="res://Scenes/UI/UIInventorySlotPreview.tscn" id="3_nwaqh"]
+[ext_resource type="Texture2D" uid="uid://c88wkj27yytfd" path="res://Sprites/UI/InventoryBackground.png" id="3_pyrvm"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g8wqq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_pyrvm")
+expand_mode = 2
+
+[node name="SelectedItemContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 68.0
+offset_right = 537.0
+offset_bottom = 579.0
+theme_override_constants/v_separation = 10
+
+[node name="SelectedSlot" parent="SelectedItemContainer" instance=ExtResource("3_nwaqh")]
+layout_mode = 2
+
+[node name="ItemContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 151.0
+offset_right = 955.0
+offset_bottom = 501.0
+theme_override_constants/v_separation = 10
+
+[node name="VBox" type="ScrollContainer" parent="ItemContainer"]
+custom_minimum_size = Vector2(380, 350)
+layout_mode = 2
+
+[node name="Control" type="VBoxContainer" parent="ItemContainer/VBox"]
+custom_minimum_size = Vector2(380, 66)
+layout_mode = 2

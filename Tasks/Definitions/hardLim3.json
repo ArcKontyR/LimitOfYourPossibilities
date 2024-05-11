@@ -1,0 +1,24 @@
+{
+	"unique_id": "h3",
+	"Name": "hardLim3",
+	"Path": "Images/hardLim3/",
+	"Parts": [
+		{
+			"PictureName": "HL3_1.png",
+			"CompareCode": 1
+		},
+		{
+			"PictureName": "HL3_2.png",
+			"CompareCode": 2
+		},
+		{
+			"PictureName": "HL3_3.png",
+			"CompareCode": 3
+		},
+		{
+			"PictureName": "HL3_4.png",
+			"CompareCode": 4
+		}
+	],
+	"Answer": 22
+}

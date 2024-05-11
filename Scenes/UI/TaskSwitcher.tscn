@@ -1,0 +1,330 @@
+[gd_scene load_steps=10 format=3 uid="uid://5w4uh0btd1e7"]
+
+[ext_resource type="Script" path="res://Scripts/TaskSwitcher.gd" id="1_s1uv7"]
+[ext_resource type="Script" path="res://Scripts/TaskContainer.gd" id="2_g5r1h"]
+[ext_resource type="Texture2D" uid="uid://d3vdxm3cqdw5p" path="res://Sprites/UI/TaskContainerBackground.png" id="3_2oq2t"]
+[ext_resource type="PackedScene" uid="uid://5un22ev8q44w" path="res://Scenes/UI/TaskSlot.tscn" id="4_361yf"]
+[ext_resource type="Script" path="res://Scripts/CheckButton.gd" id="5_0r6kr"]
+
+[sub_resource type="SystemFont" id="SystemFont_byx57"]
+font_names = PackedStringArray("Cascadia Mono")
+
+[sub_resource type="SystemFont" id="SystemFont_xgwqr"]
+font_names = PackedStringArray("Cascadia Mono")
+
+[sub_resource type="SystemFont" id="SystemFont_ydx7t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_66he5"]
+font = SubResource("SystemFont_ydx7t")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.117647)
+shadow_offset = Vector2(2, 2)
+
+[node name="TaskSwitcher" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s1uv7")
+
+[node name="HardTask" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_g5r1h")
+
+[node name="TextureRect" type="TextureRect" parent="HardTask"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -210.5
+offset_right = 400.0
+offset_bottom = 210.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_2oq2t")
+
+[node name="TaskAnswers" type="HBoxContainer" parent="HardTask"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 376.0
+offset_right = 961.0
+offset_bottom = 440.0
+theme_override_constants/separation = 90
+
+[node name="TaskAnswerSlot1" parent="HardTask/TaskAnswers" instance=ExtResource("4_361yf")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskAnswerSlot2" parent="HardTask/TaskAnswers" instance=ExtResource("4_361yf")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskAnswerSlot3" parent="HardTask/TaskAnswers" instance=ExtResource("4_361yf")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskAnswerSlot4" parent="HardTask/TaskAnswers" instance=ExtResource("4_361yf")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="Task" type="Node2D" parent="HardTask"]
+position = Vector2(569, 433)
+
+[node name="TaskSlot1" parent="HardTask/Task" instance=ExtResource("4_361yf")]
+offset_left = -221.0
+offset_top = -288.0
+offset_right = -101.0
+offset_bottom = -224.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskSlot2" parent="HardTask/Task" instance=ExtResource("4_361yf")]
+offset_left = -221.0
+offset_top = -220.0
+offset_right = -101.0
+offset_bottom = -156.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskSlot3" parent="HardTask/Task" instance=ExtResource("4_361yf")]
+offset_left = -97.0
+offset_top = -255.0
+offset_right = 23.0
+offset_bottom = -191.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskSlot4" parent="HardTask/Task" instance=ExtResource("4_361yf")]
+offset_left = 30.0
+offset_top = -256.0
+offset_right = 150.0
+offset_bottom = -192.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="AnswerBox" type="TextEdit" parent="HardTask"]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 177.0
+offset_right = 835.0
+offset_bottom = 242.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_byx57")
+theme_override_font_sizes/font_size = 48
+placeholder_text = "0"
+context_menu_enabled = false
+wrap_mode = 1
+minimap_width = 60
+
+[node name="Label" type="RichTextLabel" parent="HardTask"]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 169.0
+offset_right = 323.0
+offset_bottom = 251.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_xgwqr")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "[wave] Реши предел"
+fit_content = true
+
+[node name="CheckButton" type="Button" parent="HardTask"]
+layout_mode = 0
+offset_left = 861.0
+offset_top = 242.0
+offset_right = 959.0
+offset_bottom = 282.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.262745, 0.262745, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0.694118, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0, 0.266667, 1)
+theme_override_font_sizes/font_size = 16
+text = "Проверить"
+flat = true
+script = ExtResource("5_0r6kr")
+
+[node name="NormalTask" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_g5r1h")
+
+[node name="TextureRect" type="TextureRect" parent="NormalTask"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -210.5
+offset_right = 400.0
+offset_bottom = 210.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_2oq2t")
+
+[node name="TaskAnswers" type="Node2D" parent="NormalTask"]
+position = Vector2(575, 486)
+
+[node name="TaskAnswerSlot1" parent="NormalTask/TaskAnswers" instance=ExtResource("4_361yf")]
+offset_left = -372.0
+offset_top = -127.0
+offset_right = -252.0
+offset_bottom = -63.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskAnswerSlot2" parent="NormalTask/TaskAnswers" instance=ExtResource("4_361yf")]
+offset_left = -220.0
+offset_top = -80.0
+offset_right = -100.0
+offset_bottom = -16.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskAnswerSlot3" parent="NormalTask/TaskAnswers" instance=ExtResource("4_361yf")]
+offset_left = -62.0
+offset_top = -127.0
+offset_right = 58.0
+offset_bottom = -63.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskAnswerSlot4" parent="NormalTask/TaskAnswers" instance=ExtResource("4_361yf")]
+offset_left = 88.0
+offset_top = -79.0
+offset_right = 208.0
+offset_bottom = -15.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskAnswerSlot5" parent="NormalTask/TaskAnswers" instance=ExtResource("4_361yf")]
+offset_left = 253.0
+offset_top = -127.0
+offset_right = 373.0
+offset_bottom = -63.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="Task" type="Node2D" parent="NormalTask"]
+position = Vector2(575, 433)
+
+[node name="TaskSlot1" parent="NormalTask/Task" instance=ExtResource("4_361yf")]
+offset_left = -221.0
+offset_top = -288.0
+offset_right = -101.0
+offset_bottom = -224.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskSlot2" parent="NormalTask/Task" instance=ExtResource("4_361yf")]
+offset_left = -221.0
+offset_top = -220.0
+offset_right = -101.0
+offset_bottom = -156.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskSlot3" parent="NormalTask/Task" instance=ExtResource("4_361yf")]
+offset_left = -97.0
+offset_top = -255.0
+offset_right = 23.0
+offset_bottom = -191.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskSlot4" parent="NormalTask/Task" instance=ExtResource("4_361yf")]
+offset_left = 30.0
+offset_top = -256.0
+offset_right = 150.0
+offset_bottom = -192.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="TaskSlot5" parent="NormalTask/Task" instance=ExtResource("4_361yf")]
+offset_left = 156.0
+offset_top = -256.0
+offset_right = 276.0
+offset_bottom = -192.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+
+[node name="Label" type="Label" parent="NormalTask"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 150.0
+offset_right = 335.0
+offset_bottom = 273.0
+text = "Собери предел"
+label_settings = SubResource("LabelSettings_66he5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CheckButton" type="Button" parent="NormalTask"]
+layout_mode = 0
+offset_left = 867.0
+offset_top = 242.0
+offset_right = 965.0
+offset_bottom = 282.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.262745, 0.262745, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0.694118, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0, 0.266667, 1)
+theme_override_font_sizes/font_size = 16
+text = "Проверить"
+flat = true
+script = ExtResource("5_0r6kr")
+
+[connection signal="checkFailed" from="HardTask" to="HardTask/CheckButton" method="_on_task_check_failed"]
+[connection signal="taskCleared" from="HardTask" to="HardTask/CheckButton" method="_on_task_task_cleared"]
+[connection signal="button_down" from="HardTask/CheckButton" to="HardTask" method="_on_check_button_button_down"]
+[connection signal="checkFailed" from="NormalTask" to="NormalTask/CheckButton" method="_on_task_check_failed"]
+[connection signal="taskCleared" from="NormalTask" to="NormalTask/CheckButton" method="_on_task_task_cleared"]
+[connection signal="button_down" from="NormalTask/CheckButton" to="NormalTask" method="_on_check_button_button_down"]
+[connection signal="checkTryExceeded" from="NormalTask/CheckButton" to="." method="toggleVisibility"]

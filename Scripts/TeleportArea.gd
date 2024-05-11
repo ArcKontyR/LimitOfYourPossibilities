@@ -1,35 +1,42 @@
 class_name Teleport extends Area2D
 
 @export var shouldExam: bool = false;
+var taskComplete: bool = false;
 
 @export var teleportFrom: String;
 @export var teleportTo: String;
 @export var teleportName: String;
 
-@onready var player = get_viewport().get_node("Root/Player");
-@onready var task = get_viewport().get_node("Root/UI/TaskContainer");
+@onready var player = get_parent().get_node("Player");
+@onready var task = get_parent().get_node("UI/TaskSwitcher") as TaskSwitcher;
 
-
+func _ready():
+	var tComplete = GlobalSettings.save.map.exams.get(teleportFrom);
+	taskComplete = false if tComplete == null else tComplete;
+	task.checkSuccessful.connect(examFinished.bind(true));
+	task.checkFailed.connect(examFinished.bind(false));
+	
 func _on_body_entered(body):
-	if (body.name == "Player"):
-		print("Player on area");
-		print("area should exam - %s" % shouldExam)
-		if body.teleportInitiate.get_connections().size() > 0:
-			print("something is connected")
-			var connections: Array = body.teleportInitiate.get_connections();
-			for i in connections.size():
-				print("last teleport entry disconnected");
-				body.teleportInitiate.disconnect(connections[i]["callable"]);
-		if (body.teleportInitiate.is_connected(teleport)):
-			print("teleport disconnected");
-			body.teleportInitiate.disconnect(teleport);
-		print("teleport connected");
-		body.teleportInitiate.connect(teleport);
-		body.set_meta("collidesWith", self)
+	if (not body is Player):
+		return;
+	print("Player on area");
+	print("area should exam - %s" % shouldExam)
+	if body.teleportInitiate.get_connections().size() > 0:
+		print("something is connected")
+		var connections: Array = body.teleportInitiate.get_connections();
+		for i in connections.size():
+			print("last teleport entry disconnected");
+			body.teleportInitiate.disconnect(connections[i]["callable"]);
+	if (body.teleportInitiate.is_connected(teleport)):
+		print("teleport disconnected");
+		body.teleportInitiate.disconnect(teleport);
+	print("teleport connected");
+	body.teleportInitiate.connect(teleport);
+	body.set_meta("collidesWith", self)
 
 func _on_body_exited(body):
 	
-	if (body.name == "Player" && 
+	if (body is Player && 
 		body.has_meta("collidesWith") && 
 		body.get_meta("collidesWith") == self):
 		print("Player exited area");
@@ -40,10 +47,10 @@ func _on_body_exited(body):
 
 func teleport(interactedItem: Teleport):
 	print("teleport initiated")
-	if shouldExam:
+	if shouldExam && !taskComplete:
 		if not task.checkSuccessful.is_connected(_teleport):
 			task.checkSuccessful.connect(_teleport.bind(interactedItem))
-		task.startExam();
+		task.startExam("normal");
 	else:
 		_teleport(interactedItem);
 	
@@ -51,9 +58,19 @@ func teleport(interactedItem: Teleport):
 func _teleport(interactedItem: Teleport):
 	if (task.checkSuccessful.is_connected(_teleport)): 
 		task.checkSuccessful.disconnect(_teleport);
-	var currentLevel: Map = get_viewport().get_node("Root/%s" % interactedItem.teleportFrom)
+	#var currentLevel: Map = get_viewport().get_node(interactedItem.teleportFrom)
 	if interactedItem.teleportTo != "": 
-		var level: Map = get_viewport().get_node("Root/%s" % interactedItem.teleportTo)
-		level.toggleLevel();
-		currentLevel.toggleLevel(); 
+		#var level: Map = get_viewport().get_node(interactedItem.teleportTo)
+		#level.toggleLevel();
+		#currentLevel.toggleLevel(); 
+		GlobalSettings.save.player.lastMapPositions[teleportFrom] = player.position;
+		GlobalSettings.save.player.previousMap = teleportFrom;
+		if (GlobalSettings.save.map.pickedItems.get(teleportTo) == null):
+			print("Map items is not saved")
+			GlobalSettings.save.map.pickedItems[teleportTo] = [];
+		get_tree().change_scene_to_file("res://Scenes/Levels/%s.tscn" % interactedItem.teleportTo);
+	
+func examFinished(successful: bool):
+	GlobalSettings.save.map.exams[teleportFrom] = successful;
+
 	
