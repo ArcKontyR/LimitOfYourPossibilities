@@ -377,7 +377,7 @@ tree_root = SubResource("AnimationNodeStateMachine_w51k4")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
 parameters/conditions/isMoving = false
-parameters/Idle/blend_position = 0
+parameters/Idle/blend_position = -1.0
 parameters/Walk/blend_position = 0
 
 [node name="WAnimationTree" type="AnimationTree" parent="."]

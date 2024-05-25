@@ -61,9 +61,12 @@ func _input(_event):
 			if isAdded:
 				interactedItem.disable();
 		if (interactedItem is Teleport):
-			print("Is teleport")
-			teleportInitiate.emit(interactedItem);
+			_useTeleport(interactedItem);
 		#set_meta("collidesWith", null)
+
+func _useTeleport(teleport: Teleport):
+	print("Is teleport")
+	teleportInitiate.emit(teleport);
 
 func _animationUpdate():
 	if direction == 0:

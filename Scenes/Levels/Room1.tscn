@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmwwwqy0cqaf4"]
+[gd_scene load_steps=14 format=3 uid="uid://dmwwwqy0cqaf4"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_xwmva"]
 [ext_resource type="Texture2D" uid="uid://ckigoxwy53rge" path="res://Sprites/Background/RoomBackground.jpg" id="2_xb1fs"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Obstacles/Floor.tscn" id="10_j8fts"]
 [ext_resource type="PackedScene" uid="uid://ccv0316dswlss" path="res://Scenes/TeleportArea.tscn" id="11_4lfdu"]
 [ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Player.tscn" id="12_5fc0i"]
+[ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/AnimationBetweenScene.tscn" id="13_4vr42"]
 [ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI/UI.tscn" id="13_ule32"]
 
 [node name="Room1" type="Node2D"]
@@ -78,3 +79,5 @@ position = Vector2(337, 717)
 scale = Vector2(2, 2)
 
 [node name="UI" parent="." instance=ExtResource("13_ule32")]
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("13_4vr42")]

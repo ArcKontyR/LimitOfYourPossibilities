@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bnajifx3xekly"]
+[gd_scene load_steps=16 format=3 uid="uid://bnajifx3xekly"]
 
 [ext_resource type="Texture2D" uid="uid://dkdj01kgb40ag" path="res://Sprites/Background/CorridorBackground.jpg" id="1_j26hh"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_mwhlq"]
@@ -13,10 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI/UI.tscn" id="6_5pmrp"]
 [ext_resource type="PackedScene" uid="uid://b7kxn50j6vw0h" path="res://Scenes/Teacher.tscn" id="8_5hgnt"]
 [ext_resource type="Script" path="res://Scenes/Levels/EnemyPatrol.gd" id="8_k2qfy"]
+[ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/AnimationBetweenScene.tscn" id="14_vlwsp"]
 
 [sub_resource type="Curve2D" id="Curve2D_f34fv"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 930, 701.25, 0, 0, 0, 0, 116.25, 703.75)
+"points": PackedVector2Array(0, 0, 0, 0, 2412.5, 702.5, 0, 0, 0, 0, 1277.5, 702.5)
 }
 point_count = 2
 
@@ -36,11 +37,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="UIItem" parent="Items" instance=ExtResource("3_munjj")]
-position = Vector2(2032.5, 687.5)
+position = Vector2(2130, 668.75)
 item = ExtResource("4_5ed0u")
 
 [node name="UIItem2" parent="Items" instance=ExtResource("3_munjj")]
-position = Vector2(1271.25, 670)
+position = Vector2(927.5, 657.5)
 item = ExtResource("5_jpa5a")
 
 [node name="UIItem3" parent="Items" instance=ExtResource("3_munjj")]
@@ -63,22 +64,29 @@ position = Vector2(2493, 3)
 scale = Vector2(1, 11)
 
 [node name="Floor" parent="Environment" instance=ExtResource("3_qvthe")]
-position = Vector2(3, 701)
+position = Vector2(2.5, 716.25)
 scale = Vector2(20, 1)
 
 [node name="TeleportArea" parent="." instance=ExtResource("4_u2bqs")]
-position = Vector2(2360, 663.75)
+position = Vector2(121.25, 646.25)
 scale = Vector2(1.2, 1.2)
 teleportFrom = "Corridor1"
 teleportTo = "Room1"
 teleportName = "2"
 
+[node name="TeleportAreaNextFloor" parent="." instance=ExtResource("4_u2bqs")]
+position = Vector2(2360, 633.75)
+scale = Vector2(1.2, 1.2)
+teleportFrom = "Corridor1"
+teleportTo = "Stairs2-1"
+teleportName = "3"
+
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_f34fv")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(170.8, 703.582)
-rotation = 3.13852
+position = Vector2(1653.12, 702.5)
+rotation = 3.14159
 progress = 759.375
 loop = false
 script = ExtResource("8_k2qfy")
@@ -89,7 +97,9 @@ rotation = 3.14159
 scale = Vector2(1.2, 1.2)
 
 [node name="Player" parent="." instance=ExtResource("5_sxa80")]
-position = Vector2(2325, 428)
+position = Vector2(163.75, 441.25)
 scale = Vector2(1.2, 1.2)
 
 [node name="UI" parent="." instance=ExtResource("6_5pmrp")]
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("14_vlwsp")]

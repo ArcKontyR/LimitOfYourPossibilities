@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdtj7pf7dgls1"
-path="res://.godot/imported/TL1_5.png-1a8ac33cfa469b350c61c755dbccf7a9.ctex"
+uid="uid://bx4ngfxwlhebv"
+path="res://.godot/imported/Stairs.png-2b57603beb8b77e3af7117fbf69853fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tasks/Images/testLim1/TL1_5.png"
-dest_files=["res://.godot/imported/TL1_5.png-1a8ac33cfa469b350c61c755dbccf7a9.ctex"]
+source_file="res://Sprites/Background/Stairs.png"
+dest_files=["res://.godot/imported/Stairs.png-2b57603beb8b77e3af7117fbf69853fb.ctex"]
 
 [params]
 

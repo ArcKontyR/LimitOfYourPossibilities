@@ -1,12 +1,14 @@
 extends Node2D
 @onready var _player = $Player
 @onready var _ui_inventory = $UI/Inventory
+@onready var _animationPlayer = $AnimationPlayer as AnimationPlayer;
 
 func _ready() -> void:
 	if (GlobalSettings.save.map.pickedItems.get(name) == null):
 		print("Map items is not saved")
 		GlobalSettings.save.map.pickedItems[name] = [];
 	_load_save();
+	_animationPlayer.play("StartScene");
 	
 func _unhandled_input(event):
 	if (event.is_action_pressed("back")):

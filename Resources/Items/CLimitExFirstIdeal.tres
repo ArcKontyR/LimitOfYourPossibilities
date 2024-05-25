@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b4uauwcgx7mts"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_io3tf"]
+[ext_resource type="Texture2D" uid="uid://bsg1i42spcqy" path="res://Sprites/UI/PaperVar2.png" id="2_boqwp"]
+
+[resource]
+script = ExtResource("1_io3tf")
+uniqueId = "c_limitex_first_ideal"
+groupId = ""
+title = "Первый замечательный предел"
+description = "lim x->x0 (sin x/x) = 1"
+amount = 1
+texture = ExtResource("2_boqwp")

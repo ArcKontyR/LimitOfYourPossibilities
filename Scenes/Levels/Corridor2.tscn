@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4qqk4rxume3n"]
+
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_vcybl"]
+[ext_resource type="Texture2D" uid="uid://c76mt4dqypk2a" path="res://Sprites/Background/Corridor2Background.png" id="2_84rdt"]
+[ext_resource type="PackedScene" uid="uid://cssbmiaa7x1qw" path="res://Scenes/UI/UIItem.tscn" id="3_mw413"]
+[ext_resource type="Resource" uid="uid://dvcrm5205r3ie" path="res://Resources/Items/CLimitCauchyDef.tres" id="4_tx8ul"]
+[ext_resource type="Resource" uid="uid://bf7j4obg4ant5" path="res://Resources/Items/CLimitHeineDef.tres" id="5_8rkfi"]
+[ext_resource type="PackedScene" uid="uid://duf3rtoth5kj7" path="res://Scenes/Obstacles/Wall.tscn" id="7_q3m75"]
+[ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Obstacles/Floor.tscn" id="8_3nsxs"]
+[ext_resource type="PackedScene" uid="uid://ccv0316dswlss" path="res://Scenes/TeleportArea.tscn" id="9_e5mgn"]
+[ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/AnimationBetweenScene.tscn" id="11_j45dg"]
+[ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Player.tscn" id="12_u4yie"]
+[ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI/UI.tscn" id="13_7vdgj"]
+
+[node name="Corridor2" type="Node2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_vcybl")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 2560.0
+offset_bottom = 739.0
+texture = ExtResource("2_84rdt")
+
+[node name="Items" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UIItem" parent="Items" instance=ExtResource("3_mw413")]
+position = Vector2(420, 686.25)
+item = ExtResource("4_tx8ul")
+
+[node name="UIItem2" parent="Items" instance=ExtResource("3_mw413")]
+position = Vector2(1585, 272.5)
+rotation = -0.38381
+item = ExtResource("5_8rkfi")
+
+[node name="Environment" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Wall" parent="Environment" instance=ExtResource("7_q3m75")]
+position = Vector2(0, 3.00006)
+scale = Vector2(1, 11.35)
+
+[node name="Wall2" parent="Environment" instance=ExtResource("7_q3m75")]
+position = Vector2(2493, 3)
+scale = Vector2(1, 11.35)
+
+[node name="Floor" parent="Environment" instance=ExtResource("8_3nsxs")]
+position = Vector2(12.5, 727.5)
+scale = Vector2(20, 1)
+
+[node name="TeleportArea" parent="." instance=ExtResource("9_e5mgn")]
+position = Vector2(122.5, 683.75)
+scale = Vector2(1.2, 1.2)
+teleportFrom = "Corridor2"
+teleportTo = "Stairs2-1"
+teleportName = "5"
+
+[node name="TeleportArea2" parent="." instance=ExtResource("9_e5mgn")]
+position = Vector2(1243.75, 690)
+scale = Vector2(1.2, 1.2)
+teleportFrom = "Corridor2"
+teleportTo = "Room2"
+teleportName = "6"
+
+[node name="TeleportArea3" parent="." instance=ExtResource("9_e5mgn")]
+position = Vector2(2453.75, 677.5)
+scale = Vector2(1.2, 1.2)
+shouldExam = true
+teleportFrom = "Corridor2"
+teleportTo = "Exit"
+teleportName = "7"
+
+[node name="Player" parent="." instance=ExtResource("12_u4yie")]
+position = Vector2(206.25, 451.25)
+scale = Vector2(1.2, 1.2)
+
+[node name="UI" parent="." instance=ExtResource("13_7vdgj")]
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("11_j45dg")]

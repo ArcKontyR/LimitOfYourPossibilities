@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc00r0ghdhplq"
-path="res://.godot/imported/TL2_1.png-115c9aea84aeb0734ddfa5a1c88f88c8.ctex"
+uid="uid://c76mt4dqypk2a"
+path="res://.godot/imported/Corridor2Background.png-ac951fda6b78b37dfab95fb85c2a528e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tasks/Images/testLim2/TL2_1.png"
-dest_files=["res://.godot/imported/TL2_1.png-115c9aea84aeb0734ddfa5a1c88f88c8.ctex"]
+source_file="res://Sprites/Background/Corridor2Background.png"
+dest_files=["res://.godot/imported/Corridor2Background.png-ac951fda6b78b37dfab95fb85c2a528e.ctex"]
 
 [params]
 
