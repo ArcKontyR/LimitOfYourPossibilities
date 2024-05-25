@@ -8,6 +8,6 @@ script = ExtResource("1_1wwf3")
 uniqueId = "c_limitdivision"
 groupId = ""
 title = "Деление пределов"
-description = "lim x->x0(f(x)/g(x)) != lim x->x0(f(x)) / lim x->x0(g(x)) ,  lim x->x0(g(x)) 0Предел частного этих функций равен частному их пределов(при условии,что lim x->x0(g(x)) != 0)"
+description = "[p]lim x->x0(f(x)/g(x)) != lim x->x0(f(x)) / lim x->x0(g(x)),[/p][p]lim x->x0(g(x)) = 0[/p][p]Предел частного этих функций равен частному их пределов(при условии,что lim x->x0(g(x)) != 0)[/p]"
 amount = 1
 texture = ExtResource("2_xkwma")

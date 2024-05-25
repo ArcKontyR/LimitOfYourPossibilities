@@ -1,3 +1,4 @@
+class_name ExamCheckButton
 extends Button
 
 signal checkTryExceeded;

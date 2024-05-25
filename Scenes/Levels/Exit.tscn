@@ -1,42 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3lam8atstxt8"]
+[gd_scene load_steps=7 format=3 uid="uid://b3lam8atstxt8"]
 
-[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_ujw03"]
-[ext_resource type="Texture2D" uid="uid://ckigoxwy53rge" path="res://Sprites/Background/RoomBackground.jpg" id="2_sg7rb"]
-[ext_resource type="PackedScene" uid="uid://duf3rtoth5kj7" path="res://Scenes/Obstacles/Wall.tscn" id="8_qdu13"]
-[ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Obstacles/Floor.tscn" id="9_v7cdt"]
+[ext_resource type="Script" path="res://Scripts/Exit.gd" id="1_g5opv"]
+[ext_resource type="Texture2D" uid="uid://7cv57lte8fii" path="res://Sprites/Background/Space.jpg" id="2_4jdsh"]
 [ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Player.tscn" id="11_qevrq"]
 [ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI/UI.tscn" id="12_5er5w"]
 [ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/AnimationBetweenScene.tscn" id="13_tqrbb"]
 
+[sub_resource type="SystemFont" id="SystemFont_byvtd"]
+font_names = PackedStringArray("Cascadia Mono")
+
 [node name="Exit" type="Node2D"]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_ujw03")
+script = ExtResource("1_g5opv")
 
-[node name="Background" type="TextureRect" parent="."]
-offset_left = 2.0
-offset_right = 2584.0
-offset_bottom = 1224.0
-texture = ExtResource("2_sg7rb")
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(1162, 680)
+texture = ExtResource("2_4jdsh")
 
-[node name="Environment" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-
-[node name="Wall" parent="Environment" instance=ExtResource("8_qdu13")]
-position = Vector2(0, -1)
-scale = Vector2(1, 20)
-
-[node name="Wall2" parent="Environment" instance=ExtResource("8_qdu13")]
-position = Vector2(2511, -1)
-scale = Vector2(1, 20)
-
-[node name="Floor" parent="Environment" instance=ExtResource("9_v7cdt")]
-position = Vector2(13, 1158)
-scale = Vector2(20, 1)
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 50.0
+offset_top = 134.0
+offset_right = 2226.0
+offset_bottom = 328.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_byvtd")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[p align=center][wave]Вы сбежали из кошмара.[/wave][/p][p align=center]Игра окончена![/p]"
+fit_content = true
 
 [node name="Player" parent="." instance=ExtResource("11_qevrq")]
-position = Vector2(1274, 722)
+position = Vector2(1148, 850)
 scale = Vector2(2, 2)
 
 [node name="UI" parent="." instance=ExtResource("12_5er5w")]

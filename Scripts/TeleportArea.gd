@@ -8,7 +8,7 @@ var taskComplete: bool = false;
 @export var teleportName: String;
 @export var difficulty: TaskDifficulty.TaskDifficulty = TaskDifficulty.TaskDifficulty.NORMAL;
 
-@onready var player = get_parent().get_node("Player");
+@onready var player = get_parent().get_node("Player") as Player;
 @onready var task = get_parent().get_node("UI/TaskSwitcher") as TaskSwitcher;
 @onready var levelAnimPlayer = get_parent().get_node("AnimationPlayer") as AnimationPlayer;
 @onready var hintLabel = $Hint as RichTextLabel;
@@ -89,6 +89,7 @@ func _changeSceneTo(_animName: String, _sceneName:String):
 	get_tree().change_scene_to_file("res://Scenes/Levels/%s.tscn" % _sceneName);
 
 func examFinished(successful: bool):
+	player.enableProcess();
 	GlobalSettings.save.map.exams[teleportFrom] = successful;
 
 	

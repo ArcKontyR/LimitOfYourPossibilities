@@ -8,6 +8,6 @@ script = ExtResource("1_v53rw")
 uniqueId = "c_limitmultiply"
 groupId = ""
 title = "Произведение пределов"
-description = "lim x->x0 (f(x)*g(x)) = lim x->x0 (f(x)) * lim x->x0 (g(x)) Предел произведения этих функций равен произведению их пределов"
+description = "[p]lim x->x0 (f(x)*g(x)) = lim x->x0 (f(x)) * lim x->x0 (g(x))[/p][p]Предел произведения этих функций равен произведению их пределов.[/p]"
 amount = 1
 texture = ExtResource("2_ecuaw")

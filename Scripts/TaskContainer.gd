@@ -8,6 +8,7 @@ signal taskCleared;
 
 @onready var UI = find_parent("UI");
 @onready var answerSlots = $TaskAnswers;
+@onready var checkButton = $CheckButton as ExamCheckButton;
 @onready var limitSlots = $Task;
 @onready var answer_box = self.get_node_or_null("AnswerBox") as TextEdit;
 
@@ -17,6 +18,7 @@ func _ready():
 	if visible: 
 		toggleVisibility();
 	checkSuccessful.connect(toggleVisibility);
+	
 	var slots = answerSlots.get_children()
 	for i in range(slots.size()):
 		slots[i].gui_input.connect(slot_gui_input.bind(slots[i]))

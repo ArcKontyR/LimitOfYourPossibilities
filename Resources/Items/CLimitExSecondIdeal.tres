@@ -8,6 +8,6 @@ script = ExtResource("1_v48rs")
 uniqueId = "c_limitex_second_ideal"
 groupId = ""
 title = "Второй замечательный предел"
-description = "lim x->∞ x(1+1/x) = e; lim x->a (1+a)^(1/a) = e"
+description = "[p]lim x->∞ x(1+1/x) = e;[/p][p]lim x->a (1+a)^(1/a) = e[/p]"
 amount = 1
 texture = ExtResource("2_2sunl")

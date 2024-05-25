@@ -8,6 +8,6 @@ script = ExtResource("1_1e2df")
 uniqueId = "c_limitsumdiff"
 groupId = ""
 title = "Сумма / Разность пределов"
-description = "Пусть функции f(x) и g(x) определены в некоторой окрестности точки x0 lim x->x0 (f(x)+-g(x)) = lim x->x0 (f(x)) +- lim x->x0 (g(x)) Предел суммы (разности) этих функций равен сумме (разности) их пределов"
+description = "Пусть функции f(x) и g(x) определены в некоторой окрестности точки x0 lim x->x0 (f(x)±g(x)) = lim x->x0 (f(x)) ± lim x->x0 (g(x)) Предел суммы (разности) этих функций равен сумме (разности) их пределов"
 amount = 1
 texture = ExtResource("2_evg3e")

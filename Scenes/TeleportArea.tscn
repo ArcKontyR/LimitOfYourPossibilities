@@ -7,6 +7,7 @@ size = Vector2(133, 293)
 
 [sub_resource type="SystemFont" id="SystemFont_ukqa2"]
 font_names = PackedStringArray("Cascadia Mono")
+subpixel_positioning = 0
 
 [node name="TeleportArea" type="Area2D"]
 script = ExtResource("1_2re8b")

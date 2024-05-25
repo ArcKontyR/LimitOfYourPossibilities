@@ -14,20 +14,19 @@ func _ready():
 func startExam(difficulty: TaskDifficulty.TaskDifficulty):
 	if !visible:
 		toggleVisibility();
-	print(difficulty);
 	match difficulty:
 		TaskDifficulty.TaskDifficulty.HARD:
 			hard_task.startExam(difficulty);
 			hard_task.checkSuccessful.connect(_examCompleted);
-			hard_task.checkFailed.connect(_examFailed);
+			hard_task.checkButton.checkTryExceeded.connect(_examFailed);
 		TaskDifficulty.TaskDifficulty.HARDER:
 			hard_task.startExam(difficulty);
 			hard_task.checkSuccessful.connect(_examCompleted);
-			hard_task.checkFailed.connect(_examFailed);
+			hard_task.checkButton.checkTryExceeded.connect(_examFailed);
 		TaskDifficulty.TaskDifficulty.NORMAL:
 			normal_task.startExam(difficulty);
 			normal_task.checkSuccessful.connect(_examCompleted);
-			normal_task.checkFailed.connect(_examFailed);
+			normal_task.checkButton.checkTryExceeded.connect(_examFailed);
 		
 
 func _examCompleted():
@@ -44,12 +43,12 @@ func _examFailed():
 	
 
 func _disconnectSignals():
-	if (hard_task.checkFailed.is_connected(_examCompleted)):
-		hard_task.checkFailed.disconnect(_examCompleted);
+	if (hard_task.checkButton.checkTryExceeded.is_connected(_examFailed)):
+		hard_task.checkButton.checkTryExceeded.disconnect(_examFailed);
 	if (hard_task.checkSuccessful.is_connected(_examCompleted)):
 		hard_task.checkSuccessful.disconnect(_examCompleted);
-	if (normal_task.checkFailed.is_connected(_examCompleted)):
-		normal_task.checkFailed.disconnect(_examCompleted);
+	if (normal_task.checkButton.checkTryExceeded.is_connected(_examFailed)):
+		normal_task.checkButton.checkTryExceeded.disconnect(_examFailed);
 	if (normal_task.checkSuccessful.is_connected(_examCompleted)):
 		normal_task.checkSuccessful.disconnect(_examCompleted);
 

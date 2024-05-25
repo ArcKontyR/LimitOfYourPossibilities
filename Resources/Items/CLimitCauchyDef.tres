@@ -8,6 +8,6 @@ script = ExtResource("1_gbdgu")
 uniqueId = "c_limit_cauchy_def"
 groupId = ""
 title = "Определение по Коши"
-description = "Число А - предел функции y = f(x) в точке x0, если для любого >0 существует() > 0: для любого x X, удовлетворяет неравенству 0 <|x-x0|< =>|f(x) - A| < "
+description = "Число А - предел функции y = f(x) в точке x0, если для любого ξ > 0 существует δ(ξ) > 0: для любого x ∈ X, удовлетворяет неравенству 0 <|x-x0|< δ =>|f(x) - A| < ξ"
 amount = 1
 texture = ExtResource("2_psyfq")
