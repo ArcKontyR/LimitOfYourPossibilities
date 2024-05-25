@@ -16,7 +16,7 @@ var direction: float;
 var currentSpeed = stats.speed;
 
 func _ready():
-	animationTree = $WAnimationTree if GlobalSettings.playerGender == GlobalSettings.Gender.FEMALE else $MAnimationTree;
+	animationTree = $WAnimationTree if GlobalSettings.playerGender == Gender.FEMALE else $MAnimationTree;
 	animationTree.active = true;
 	
 func _process(_delta):
@@ -61,8 +61,24 @@ func _input(_event):
 			if isAdded:
 				interactedItem.disable();
 		if (interactedItem is Teleport):
+			if (interactedItem.shouldExam):
+				disableProcess();
 			_useTeleport(interactedItem);
 		#set_meta("collidesWith", null)
+
+func disableProcess():
+	_toogleProcess(false);
+	
+func enableProcess():
+	_toogleProcess(true);
+	
+func _toogleProcess(_enable: bool):
+	direction = 0;
+	_process(0.001);
+	set_process_input(_enable);
+	set_process(_enable);
+	set_physics_process(_enable);
+	
 
 func _useTeleport(teleport: Teleport):
 	print("Is teleport")

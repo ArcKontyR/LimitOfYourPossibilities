@@ -6,6 +6,7 @@ var taskComplete: bool = false;
 @export var teleportFrom: String;
 @export var teleportTo: String;
 @export var teleportName: String;
+@export var difficulty: TaskDifficulty.TaskDifficulty = TaskDifficulty.TaskDifficulty.NORMAL;
 
 @onready var player = get_parent().get_node("Player");
 @onready var task = get_parent().get_node("UI/TaskSwitcher") as TaskSwitcher;
@@ -18,12 +19,11 @@ func _ready():
 	task.checkSuccessful.connect(examFinished.bind(true));
 	task.checkFailed.connect(examFinished.bind(false));
 	
-	var actions = InputMap.action_get_events( "interact" )
+	var actions = InputMap.action_get_events("interact")
 	var actionEvent = actions[0] as InputEventKey;
 	var key = OS.get_keycode_string( actionEvent.physical_keycode ) as String; 
 	hintLabel.text = "Нажми [color=red]%s[/color] для перехода" % key;
 	hintLabel.hide();
-	
 	
 func _on_body_entered(body):
 	if (not body is Player):
@@ -62,7 +62,7 @@ func teleport(interactedItem: Teleport):
 	if shouldExam && !taskComplete:
 		if not task.checkSuccessful.is_connected(_teleport):
 			task.checkSuccessful.connect(_teleport.bind(interactedItem))
-		task.startExam("normal");
+		task.startExam(difficulty);
 	else:
 		_teleport(interactedItem);
 	
@@ -83,6 +83,7 @@ func _teleport(interactedItem: Teleport):
 		var nextLevelName: String = interactedItem.teleportTo;
 		levelAnimPlayer.play("ChangeScene");
 		levelAnimPlayer.animation_finished.connect(_changeSceneTo.bind(nextLevelName));
+		player.enableProcess();
 
 func _changeSceneTo(_animName: String, _sceneName:String):
 	get_tree().change_scene_to_file("res://Scenes/Levels/%s.tscn" % _sceneName);

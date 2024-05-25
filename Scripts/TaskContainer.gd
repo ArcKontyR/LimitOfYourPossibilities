@@ -82,24 +82,26 @@ func _input(event):
 		print("disabling exam");
 		toggleVisibility();
 
-func startExam(diff: String):
+func startExam(diff: TaskDifficulty.TaskDifficulty):
 	print_rich("starting [color=yellow]%s[/color] difficulty" % diff);
 	toggleVisibility();
 	if (visible):
 		match diff:
-			"hard":
-				print("loading hards");
-				_load_tasks(TaskDatabase.HARD_TASKS, true);
-			"normal":
-				_load_tasks(TaskDatabase.TASKS);
+			TaskDifficulty.TaskDifficulty.NORMAL:
+				_load_tasks(TaskDatabase.TASKS, diff);
+			TaskDifficulty.TaskDifficulty.HARD:
+				#print("loading hards");
+				_load_tasks(TaskDatabase.HARD_TASKS, diff);
+			TaskDifficulty.TaskDifficulty.HARDER:
+				_load_tasks(TaskDatabase.HARDER_TASKS, diff);
 			_:
 				printerr("why are we still here");
 		
-func _load_tasks(tasks: Dictionary, needHard: bool = false):
+func _load_tasks(tasks: Dictionary, tier: int = 1):
 	#print("load tasks with params: needHard - %s, tasks - %s" % [needHard,tasks]);
 	randomize();
 	var limitNumber: int = randi_range(1, tasks.size());
-	loadLimitAsJSON(TaskDatabase.get_task_path(limitNumber, needHard));
+	loadLimitAsJSON(TaskDatabase.get_task_path(limitNumber, tier));
 	
 func left_click_empty_slot(slot: TaskSlot):
 		slot.setItem(UI.holdingItem)
@@ -147,7 +149,7 @@ func _on_check_button_button_down():
 			checkFailed.emit();
 			return;
 		if (answer_box != null):
-			if (answer_box.text.to_int() != currentLimitLoaded["Answer"]):
+			if (answer_box.text != currentLimitLoaded["Answer"]):
 				checkFailed.emit();
 				return;
 	checkSuccessful.emit();

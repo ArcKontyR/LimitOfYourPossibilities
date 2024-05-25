@@ -1,0 +1,24 @@
+{
+  "unique_id": "h3",
+  "Name": "harderLim3",
+  "Path": "Images/",
+  "Parts": [
+    {
+      "PictureName": "limit.png",
+      "CompareCode": 1
+    },
+    {
+      "PictureName": "xtoinf.png",
+      "CompareCode": 2
+    },
+    {
+      "PictureName": "HrL3_3.png",
+      "CompareCode": 3
+    },
+    {
+      "PictureName": "equals.png",
+      "CompareCode": 4
+    }
+  ],
+  "Answer": "e"
+}

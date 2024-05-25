@@ -76,6 +76,7 @@ shouldExam = true
 teleportFrom = "Corridor2"
 teleportTo = "Exit"
 teleportName = "7"
+difficulty = 3
 
 [node name="Player" parent="." instance=ExtResource("12_u4yie")]
 position = Vector2(206.25, 451.25)

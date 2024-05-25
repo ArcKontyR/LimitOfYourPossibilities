@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://dgrcy2k5tys30" path="res://Resources/Items/CLimitDivision.tres" id="6_3m78i"]
 [ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI/UI.tscn" id="6_5pmrp"]
 [ext_resource type="PackedScene" uid="uid://b7kxn50j6vw0h" path="res://Scenes/Teacher.tscn" id="8_5hgnt"]
-[ext_resource type="Script" path="res://Scenes/Levels/EnemyPatrol.gd" id="8_k2qfy"]
+[ext_resource type="Script" path="res://Scripts/EnemyPatrol.gd" id="8_k2qfy"]
 [ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/AnimationBetweenScene.tscn" id="14_vlwsp"]
 
 [sub_resource type="Curve2D" id="Curve2D_f34fv"]

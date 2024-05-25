@@ -5,6 +5,7 @@ extends Node
 
 var alerted = false;
 var taskCompleted = false;
+var player: Player;
 
 signal alertion_changed(alerted: bool);
 
@@ -12,18 +13,27 @@ signal alertion_changed(alerted: bool);
 func _ready():
 	taskCompleted = GlobalSettings.save.map.exams.get(name);
 	task.checkSuccessful.connect(task_complete);
-	pass # Replace with function body.
+	task.checkFailed.connect(task_failed);
 
 func _on_hitbox_body_entered(body):
 	if (body is Player):
+		player = body;
 		print_rich("[color=yellow]%s[/color] entered an enemy area" % body.name);
 		if (!taskCompleted):
-			task.startExam("hard");
+			player.disableProcess();
+			task.startExam(TaskDifficulty.TaskDifficulty.HARD);
 
 func task_complete():
 	taskCompleted = true;
+	player.enableProcess();
 	GlobalSettings.save.map.exams[name] = taskCompleted;
 	print("task completed");
+
+func task_failed():
+	taskCompleted = false;
+	player.enableProcess();
+	GlobalSettings.save.map.exams[name] = taskCompleted;
+	print("task failed");
 
 func _on_view_body_entered(body):
 	if (body is Player && !taskCompleted):

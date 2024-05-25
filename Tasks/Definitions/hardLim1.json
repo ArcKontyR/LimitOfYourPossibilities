@@ -1,14 +1,14 @@
 {
 	"unique_id": "h1",
 	"Name": "hardLim1",
-	"Path": "Images/hardLim1/",
+	"Path": "Images/",
 	"Parts": [
 		{
-			"PictureName": "HL1_1.png",
+			"PictureName": "limit.png",
 			"CompareCode": 1
 		},
 		{
-			"PictureName": "HL1_2.png",
+			"PictureName": "xtoone.png",
 			"CompareCode": 2
 		},
 		{
@@ -16,9 +16,9 @@
 			"CompareCode": 3
 		},
 		{
-			"PictureName": "HL1_4.png",
+			"PictureName": "equals.png",
 			"CompareCode": 4
 		}
 	],
-	"Answer": -1
+	"Answer": "-1"
 }

@@ -3,13 +3,19 @@ extends Node
 # Maps unique IDs of items to ItemData instances.
 var TASKS = {}
 var HARD_TASKS = {}
+var HARDER_TASKS = {}
 
 func _ready() -> void:
 	var items = _load_items();
 	var i = 0;
 	var hi=0;
+	var hri=0;
 	for item: String in items:
-		if (item.contains("hard")):
+		if (item.contains("harder")):
+			print("adding harder task");
+			hri+=1;
+			HARDER_TASKS[hri] = item;
+		elif (item.contains("hard")):
 			print("adding hard task");
 			hi+=1;
 			HARD_TASKS[hi] = item;
@@ -19,8 +25,14 @@ func _ready() -> void:
 			TASKS[i] = item;
 
 
-func get_task_path(index: int, needHard: bool = false) -> String:
-	return _get_hard_task_path(index) if needHard else _get_normal_task_path(index);
+func get_task_path(index: int, difficulty: TaskDifficulty.TaskDifficulty = TaskDifficulty.TaskDifficulty.NORMAL) -> String:
+	match difficulty:
+		TaskDifficulty.TaskDifficulty.HARD: 
+			return _get_hard_task_path(index);
+		TaskDifficulty.TaskDifficulty.HARDER: 
+			return _get_harder_task_path(index);
+		_:
+			return _get_normal_task_path(index);
 
 func _get_hard_task_path(index:int) -> String:
 	if not index in HARD_TASKS:
@@ -28,6 +40,13 @@ func _get_hard_task_path(index:int) -> String:
 		return "";
 	
 	return HARD_TASKS[index];
+	
+func _get_harder_task_path(index:int) -> String:
+	if not index in HARDER_TASKS:
+		printerr("Trying to get nonexistent item %s in items database" % index)
+		return "";
+	
+	return HARDER_TASKS[index];
 	
 func _get_normal_task_path(index: int) -> String:
 	if not index in TASKS:

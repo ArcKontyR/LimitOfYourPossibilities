@@ -1,6 +1,6 @@
 {
-	"unique_id": "1",
-	"Name": "lim1",
+	"unique_id": "hr1",
+	"Name": "harderLim1",
 	"Path": "Images/",
 	"Parts": [
 		{
@@ -12,16 +12,13 @@
 			"CompareCode": 2
 		},
 		{
-			"PictureName": "L1_3.png",
+			"PictureName": "HrL1_3.png",
 			"CompareCode": 3
 		},
 		{
 			"PictureName": "equals.png",
 			"CompareCode": 4
-		},
-		{
-			"PictureName": "one.png",
-			"CompareCode": 5
 		}
-	]
+	],
+	"Answer": "3"
 }

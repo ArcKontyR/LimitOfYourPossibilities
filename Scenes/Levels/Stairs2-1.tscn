@@ -37,16 +37,16 @@ position = Vector2(1036, 0)
 scale = Vector2(1, 20)
 
 [node name="Floor" parent="Environment" instance=ExtResource("4_2r5ud")]
-position = Vector2(52, 730)
+position = Vector2(48, 780)
 scale = Vector2(4.58, 1)
 
 [node name="Floor2" parent="Environment" instance=ExtResource("4_2r5ud")]
-position = Vector2(640, 730)
+position = Vector2(636, 780)
 rotation = 0.550249
 scale = Vector2(5.3, 1)
 
 [node name="TeleportArea" parent="." instance=ExtResource("5_1u657")]
-position = Vector2(1052, 906)
+position = Vector2(1036, 918)
 scale = Vector2(1.8, 1.8)
 teleportFrom = "Stairs2-1"
 teleportTo = "Corridor2"
@@ -60,8 +60,8 @@ teleportTo = "Corridor1"
 teleportName = "1"
 
 [node name="Player" parent="." instance=ExtResource("6_31x63")]
-position = Vector2(200, 396)
-scale = Vector2(1.5, 1.5)
+position = Vector2(266, 424)
+scale = Vector2(1.6, 1.6)
 
 [node name="UI" parent="." instance=ExtResource("7_app4f")]
 
