@@ -6,7 +6,7 @@ var taskComplete: bool = false;
 @export var teleportFrom: String;
 @export var teleportTo: String;
 @export var teleportName: String;
-@export var difficulty: TaskDifficulty.TaskDifficulty = TaskDifficulty.TaskDifficulty.NORMAL;
+@export var difficulty: TaskDifficultyEnum.TaskDifficulty = TaskDifficultyEnum.TaskDifficulty.NORMAL;
 
 @onready var player = get_parent().get_node("Player") as Player;
 @onready var task = get_parent().get_node("UI/TaskSwitcher") as TaskSwitcher;

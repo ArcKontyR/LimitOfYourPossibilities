@@ -16,7 +16,7 @@ var direction: float;
 var currentSpeed = stats.speed;
 
 func _ready():
-	animationTree = $WAnimationTree if GlobalSettings.playerGender == Gender.FEMALE else $MAnimationTree;
+	animationTree = $WAnimationTree if GlobalSettings.save.player.gender == GenderEnum.Gender.FEMALE else $MAnimationTree;
 	animationTree.active = true;
 	
 func _process(_delta):

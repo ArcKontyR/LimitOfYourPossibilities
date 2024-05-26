@@ -35,6 +35,8 @@ func _load_save():
 	_player.set_position(GlobalSettings.save.player.position);
 	_ui_inventory.inventory = GlobalSettings.save.inventory;
 	_player.stats = GlobalSettings.save.player;
+	print("saved %s" % GlobalSettings.save.player.gender);
+	print("player gender %s" % _player.stats.gender);
 
 func _saveGame() -> void:
 	GlobalSettings.save.player.currentMap = name;

@@ -1,5 +1,5 @@
-class_name Gender
-enum {
+class_name GenderEnum
+enum Gender{
 	MALE = 0,
 	FEMALE = 1
 }

@@ -84,17 +84,16 @@ func _input(event):
 		print("disabling exam");
 		toggleVisibility();
 
-func startExam(diff: TaskDifficulty.TaskDifficulty):
+func startExam(diff: TaskDifficultyEnum.TaskDifficulty):
 	print_rich("starting [color=yellow]%s[/color] difficulty" % diff);
 	toggleVisibility();
 	if (visible):
 		match diff:
-			TaskDifficulty.TaskDifficulty.NORMAL:
+			TaskDifficultyEnum.TaskDifficulty.NORMAL:
 				_load_tasks(TaskDatabase.TASKS, diff);
-			TaskDifficulty.TaskDifficulty.HARD:
-				#print("loading hards");
+			TaskDifficultyEnum.TaskDifficulty.HARD:
 				_load_tasks(TaskDatabase.HARD_TASKS, diff);
-			TaskDifficulty.TaskDifficulty.HARDER:
+			TaskDifficultyEnum.TaskDifficulty.HARDER:
 				_load_tasks(TaskDatabase.HARDER_TASKS, diff);
 			_:
 				printerr("why are we still here");

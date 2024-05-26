@@ -1,4 +1,4 @@
-class_name TaskDifficulty
+class_name TaskDifficultyEnum
 enum TaskDifficulty{
 	NORMAL = 1,
 	HARD = 2,

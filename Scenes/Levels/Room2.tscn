@@ -69,9 +69,11 @@ scale = Vector2(20, 1)
 [node name="TeleportArea" parent="." instance=ExtResource("10_r3q88")]
 position = Vector2(2286, 1010)
 scale = Vector2(2, 2)
+shouldExam = null
 teleportFrom = "Room2"
 teleportTo = "Corridor2"
 teleportName = "1"
+difficulty = null
 
 [node name="Player" parent="." instance=ExtResource("11_1d4oy")]
 position = Vector2(337, 717)

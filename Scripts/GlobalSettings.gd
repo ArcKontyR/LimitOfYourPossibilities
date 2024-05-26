@@ -1,6 +1,5 @@
 extends Node
 
-@export var playerGender = Gender.FEMALE;
 @export var save: SaveGame;
 
 func _notification(what):

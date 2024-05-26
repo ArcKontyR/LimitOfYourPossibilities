@@ -25,11 +25,11 @@ func _ready() -> void:
 			TASKS[i] = item;
 
 
-func get_task_path(index: int, difficulty: TaskDifficulty.TaskDifficulty = TaskDifficulty.TaskDifficulty.NORMAL) -> String:
+func get_task_path(index: int, difficulty: TaskDifficultyEnum.TaskDifficulty = TaskDifficultyEnum.TaskDifficulty.NORMAL) -> String:
 	match difficulty:
-		TaskDifficulty.TaskDifficulty.HARD: 
+		TaskDifficultyEnum.TaskDifficulty.HARD: 
 			return _get_hard_task_path(index);
-		TaskDifficulty.TaskDifficulty.HARDER: 
+		TaskDifficultyEnum.TaskDifficulty.HARDER: 
 			return _get_harder_task_path(index);
 		_:
 			return _get_normal_task_path(index);

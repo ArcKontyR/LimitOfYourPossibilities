@@ -11,19 +11,15 @@ func _ready():
 	if visible:
 		toggleVisibility();
 
-func startExam(difficulty: TaskDifficulty.TaskDifficulty):
+func startExam(difficulty: TaskDifficultyEnum.TaskDifficulty):
 	if !visible:
 		toggleVisibility();
 	match difficulty:
-		TaskDifficulty.TaskDifficulty.HARD:
+		TaskDifficultyEnum.TaskDifficulty.HARD, TaskDifficultyEnum.TaskDifficulty.HARDER:
 			hard_task.startExam(difficulty);
 			hard_task.checkSuccessful.connect(_examCompleted);
 			hard_task.checkButton.checkTryExceeded.connect(_examFailed);
-		TaskDifficulty.TaskDifficulty.HARDER:
-			hard_task.startExam(difficulty);
-			hard_task.checkSuccessful.connect(_examCompleted);
-			hard_task.checkButton.checkTryExceeded.connect(_examFailed);
-		TaskDifficulty.TaskDifficulty.NORMAL:
+		TaskDifficultyEnum.TaskDifficulty.NORMAL:
 			normal_task.startExam(difficulty);
 			normal_task.checkSuccessful.connect(_examCompleted);
 			normal_task.checkButton.checkTryExceeded.connect(_examFailed);
