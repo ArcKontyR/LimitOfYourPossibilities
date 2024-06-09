@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://b0q8tfnpyo6a6"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_bxdea"]
-[ext_resource type="Texture2D" uid="uid://ckigoxwy53rge" path="res://Sprites/Background/RoomBackground.jpg" id="2_u6ygb"]
-[ext_resource type="Texture2D" uid="uid://xyxy8yljewaq" path="res://Sprites/Background/RoomForeground.png" id="3_1d6ec"]
+[ext_resource type="Texture2D" uid="uid://cwwh2w83wuuvs" path="res://Sprites/Background/Room2Background.png" id="2_41ka5"]
+[ext_resource type="Texture2D" uid="uid://bgaoty36jykjt" path="res://Sprites/Background/Room2Foreground.png" id="3_66gq2"]
 [ext_resource type="PackedScene" uid="uid://cssbmiaa7x1qw" path="res://Scenes/UI/UIItem.tscn" id="4_y6vg3"]
 [ext_resource type="Resource" uid="uid://b4uauwcgx7mts" path="res://Resources/Items/CLimitExFirstIdeal.tres" id="5_cek43"]
 [ext_resource type="Resource" uid="uid://c1q8shab2hvrl" path="res://Resources/Items/CLimitExSecondIdeal.tres" id="6_1sf0o"]
@@ -22,7 +22,7 @@ script = ExtResource("1_bxdea")
 offset_left = 2.0
 offset_right = 2584.0
 offset_bottom = 1224.0
-texture = ExtResource("2_u6ygb")
+texture = ExtResource("2_41ka5")
 
 [node name="Foreground" type="TextureRect" parent="Background"]
 z_index = 1
@@ -30,7 +30,7 @@ layout_mode = 0
 offset_left = -2.0
 offset_right = 2580.0
 offset_bottom = 1224.0
-texture = ExtResource("3_1d6ec")
+texture = ExtResource("3_66gq2")
 expand_mode = 1
 
 [node name="Items" type="Control" parent="."]
@@ -38,15 +38,15 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Item" parent="Items" instance=ExtResource("4_y6vg3")]
-position = Vector2(1274, 1092)
+position = Vector2(1316, 1092)
 item = ExtResource("5_cek43")
 
 [node name="Item2" parent="Items" instance=ExtResource("4_y6vg3")]
-position = Vector2(692, 892)
+position = Vector2(134, 1056)
 item = ExtResource("6_1sf0o")
 
 [node name="Item3" parent="Items" instance=ExtResource("4_y6vg3")]
-position = Vector2(1998, 1074)
+position = Vector2(1798, 1094)
 item = ExtResource("7_fi2uj")
 
 [node name="Environment" type="Control" parent="."]
@@ -67,13 +67,13 @@ position = Vector2(13, 1158)
 scale = Vector2(20, 1)
 
 [node name="TeleportArea" parent="." instance=ExtResource("10_r3q88")]
-position = Vector2(2286, 1010)
+position = Vector2(452, 990)
 scale = Vector2(2, 2)
-shouldExam = null
+shouldExam = false
 teleportFrom = "Room2"
 teleportTo = "Corridor2"
 teleportName = "1"
-difficulty = null
+difficulty = 1
 
 [node name="Player" parent="." instance=ExtResource("11_1d4oy")]
 position = Vector2(337, 717)

@@ -1,39 +1,79 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3lam8atstxt8"]
+[gd_scene load_steps=11 format=3 uid="uid://b3lam8atstxt8"]
 
 [ext_resource type="Script" path="res://Scripts/Exit.gd" id="1_g5opv"]
-[ext_resource type="Texture2D" uid="uid://7cv57lte8fii" path="res://Sprites/Background/Space.jpg" id="2_4jdsh"]
+[ext_resource type="Texture2D" uid="uid://juisyc7vtq5o" path="res://Sprites/Background/ExitBackground.png" id="2_ocl6s"]
+[ext_resource type="PackedScene" uid="uid://duf3rtoth5kj7" path="res://Scenes/Obstacles/Wall.tscn" id="3_fjlm2"]
+[ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Obstacles/Floor.tscn" id="4_1wy4p"]
+[ext_resource type="Script" path="res://Scripts/ExitTrigger.gd" id="7_jrxah"]
 [ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Player.tscn" id="11_qevrq"]
 [ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI/UI.tscn" id="12_5er5w"]
 [ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/AnimationBetweenScene.tscn" id="13_tqrbb"]
 
-[sub_resource type="SystemFont" id="SystemFont_byvtd"]
+[sub_resource type="SystemFont" id="SystemFont_iel6k"]
 font_names = PackedStringArray("Cascadia Mono")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wakdw"]
+size = Vector2(216, 744)
+
 [node name="Exit" type="Node2D"]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_g5opv")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(1162, 680)
-texture = ExtResource("2_4jdsh")
+position = Vector2(1420, 370)
+texture = ExtResource("2_ocl6s")
+flip_h = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 50.0
-offset_top = 134.0
-offset_right = 2226.0
-offset_bottom = 328.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = SubResource("SystemFont_byvtd")
-theme_override_font_sizes/normal_font_size = 72
-bbcode_enabled = true
-text = "[p align=center][wave]Вы сбежали из кошмара.[/wave][/p][p align=center]Игра окончена![/p]"
-fit_content = true
+[node name="Environment" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Wall" parent="Environment" instance=ExtResource("3_fjlm2")]
+position = Vector2(0, -1)
+scale = Vector2(0.921564, 11.7759)
+
+[node name="Wall2" parent="Environment" instance=ExtResource("3_fjlm2")]
+position = Vector2(2768, 0)
+scale = Vector2(1, 11.6135)
+
+[node name="Floor" parent="Environment" instance=ExtResource("4_1wy4p")]
+position = Vector2(12, 720)
+scale = Vector2(22.1058, 1.02097)
+
+[node name="Floor2" parent="Environment" instance=ExtResource("4_1wy4p")]
+position = Vector2(32, 604)
+scale = Vector2(1.52973, 1.0988)
+
+[node name="Floor3" parent="Environment" instance=ExtResource("4_1wy4p")]
+position = Vector2(228, 604)
+rotation = 0.646142
+scale = Vector2(1.52973, 1.0988)
 
 [node name="Player" parent="." instance=ExtResource("11_qevrq")]
-position = Vector2(1148, 850)
-scale = Vector2(2, 2)
+position = Vector2(158, 370)
+
+[node name="FinalText" type="RichTextLabel" parent="Player"]
+offset_left = -191.0
+offset_top = -255.0
+offset_right = 223.0
+offset_bottom = -212.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_iel6k")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[p align=center][wave]Вы сбежали из кошмара[/wave][/p]"
 
 [node name="UI" parent="." instance=ExtResource("12_5er5w")]
 
+[node name="ExitTrigger" type="Area2D" parent="."]
+position = Vector2(2146, 10)
+script = ExtResource("7_jrxah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTrigger"]
+position = Vector2(98, 362)
+shape = SubResource("RectangleShape2D_wakdw")
+
 [node name="AnimationPlayer" parent="." instance=ExtResource("13_tqrbb")]
+
+[connection signal="body_entered" from="ExitTrigger" to="ExitTrigger" method="_on_body_entered"]

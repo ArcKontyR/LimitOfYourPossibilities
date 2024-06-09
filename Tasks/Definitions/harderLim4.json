@@ -3,22 +3,22 @@
   "Name": "harderLim4",
   "Path": "Images/",
   "Parts": [
-    {
-      "PictureName": "limit.png",
-      "CompareCode": 1
-    },
-    {
-      "PictureName": "xtozero.png",
-      "CompareCode": 2
-    },
-    {
-      "PictureName": "HrL4_3.png",
-      "CompareCode": 3
-    },
-    {
-      "PictureName": "equals.png",
-      "CompareCode": 4
-    }
+	{
+	  "PictureName": "limit.png",
+	  "CompareCode": 1
+	},
+	{
+	  "PictureName": "xtozero.png",
+	  "CompareCode": 2
+	},
+	{
+	  "PictureName": "HrL4_3.png",
+	  "CompareCode": 3
+	},
+	{
+	  "PictureName": "equals.png",
+	  "CompareCode": 4
+	}
   ],
   "Answer": "2"
 }

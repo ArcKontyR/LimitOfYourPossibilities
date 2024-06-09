@@ -70,20 +70,20 @@ scale = Vector2(20, 1)
 [node name="TeleportArea" parent="." instance=ExtResource("4_u2bqs")]
 position = Vector2(121.25, 646.25)
 scale = Vector2(1.2, 1.2)
-shouldExam = null
+shouldExam = false
 teleportFrom = "Corridor1"
 teleportTo = "Room1"
 teleportName = "2"
-difficulty = null
+difficulty = 1
 
 [node name="TeleportAreaNextFloor" parent="." instance=ExtResource("4_u2bqs")]
 position = Vector2(2360, 633.75)
 scale = Vector2(1.2, 1.2)
-shouldExam = null
+shouldExam = false
 teleportFrom = "Corridor1"
 teleportTo = "Stairs2-1"
 teleportName = "3"
-difficulty = null
+difficulty = 1
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_f34fv")

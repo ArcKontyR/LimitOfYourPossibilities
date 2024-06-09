@@ -7,11 +7,14 @@ var taskComplete: bool = false;
 @export var teleportTo: String;
 @export var teleportName: String;
 @export var difficulty: TaskDifficultyEnum.TaskDifficulty = TaskDifficultyEnum.TaskDifficulty.NORMAL;
+@export_range(1,3) var examCount: int = 1;
 
 @onready var player = get_parent().get_node("Player") as Player;
 @onready var task = get_parent().get_node("UI/TaskSwitcher") as TaskSwitcher;
 @onready var levelAnimPlayer = get_parent().get_node("AnimationPlayer") as AnimationPlayer;
 @onready var hintLabel = $Hint as RichTextLabel;
+
+var successfulExamCount = 0;
 
 func _ready():
 	var tComplete = GlobalSettings.save.map.exams.get(teleportFrom);
@@ -58,14 +61,23 @@ func _on_body_exited(body):
 		
 
 func teleport(interactedItem: Teleport):
-	print("teleport initiated")
+	print("teleport initiated with %s" % examCount)
 	if shouldExam && !taskComplete:
-		if not task.checkSuccessful.is_connected(_teleport):
+		#if task.checkSuccessful.is_connected(examSuccess):
+		#	task.checkSuccessful.disconnect(examSuccess);
+		#task.checkSuccessful.connect(examSuccess.bind(interactedItem));
+			
+		if (not task.checkSuccessful.is_connected(_teleport)):
+			#if task.checkSuccessful.is_connected(examSuccess):
+			#	task.checkSuccessful.disconnect(examSuccess);
 			task.checkSuccessful.connect(_teleport.bind(interactedItem))
 		task.startExam(difficulty);
 	else:
 		_teleport(interactedItem);
-	
+
+func examSuccess(interactedItem: Teleport):
+	successfulExamCount+=1;
+	teleport(interactedItem);
 
 func _teleport(interactedItem: Teleport):
 	if (task.checkSuccessful.is_connected(_teleport)): 

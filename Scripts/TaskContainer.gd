@@ -13,6 +13,7 @@ signal taskCleared;
 @onready var answer_box = self.get_node_or_null("AnswerBox") as TextEdit;
 
 var currentLimitLoaded = {};
+var examCountSuccessful = 0;
 
 func _ready():
 	if visible: 
