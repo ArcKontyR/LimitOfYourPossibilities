@@ -63,21 +63,11 @@ func _on_body_exited(body):
 func teleport(interactedItem: Teleport):
 	print("teleport initiated with %s" % examCount)
 	if shouldExam && !taskComplete:
-		#if task.checkSuccessful.is_connected(examSuccess):
-		#	task.checkSuccessful.disconnect(examSuccess);
-		#task.checkSuccessful.connect(examSuccess.bind(interactedItem));
-			
 		if (not task.checkSuccessful.is_connected(_teleport)):
-			#if task.checkSuccessful.is_connected(examSuccess):
-			#	task.checkSuccessful.disconnect(examSuccess);
 			task.checkSuccessful.connect(_teleport.bind(interactedItem))
-		task.startExam(difficulty);
+		task.startExam(difficulty, examCount);
 	else:
 		_teleport(interactedItem);
-
-func examSuccess(interactedItem: Teleport):
-	successfulExamCount+=1;
-	teleport(interactedItem);
 
 func _teleport(interactedItem: Teleport):
 	if (task.checkSuccessful.is_connected(_teleport)): 

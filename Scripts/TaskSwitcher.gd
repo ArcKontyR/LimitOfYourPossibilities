@@ -7,46 +7,55 @@ signal checkFailed;
 @onready var hard_task = $HardTask as TaskContainer;
 @onready var normal_task = $NormalTask as TaskContainer;
 
+
 func _ready():
 	if visible:
 		toggleVisibility();
 
-func startExam(difficulty: TaskDifficultyEnum.TaskDifficulty):
+func startExam(difficulty: TaskDifficultyEnum.TaskDifficulty, examCount: int = 1):
 	if !visible:
 		toggleVisibility();
 	match difficulty:
 		TaskDifficultyEnum.TaskDifficulty.HARD, TaskDifficultyEnum.TaskDifficulty.HARDER:
-			hard_task.startExam(difficulty);
-			hard_task.checkSuccessful.connect(_examCompleted);
-			hard_task.checkButton.checkTryExceeded.connect(_examFailed);
+			examInitiate(hard_task, difficulty, 1, examCount);
 		TaskDifficultyEnum.TaskDifficulty.NORMAL:
-			normal_task.startExam(difficulty);
-			normal_task.checkSuccessful.connect(_examCompleted);
-			normal_task.checkButton.checkTryExceeded.connect(_examFailed);
+			examInitiate(normal_task, difficulty, 1, examCount);
 		
+func examSuccessful(task: TaskContainer, diff: TaskDifficultyEnum.TaskDifficulty, iteration: int, examCount: int):
+	_disconnectSignals(task);
+	examInitiate(task, diff, iteration + 1, examCount);
+	
+func examInitiate(task: TaskContainer, diff: TaskDifficultyEnum.TaskDifficulty, iteration: int, examCount: int):
+	print("%s iteration, %s max count" % [iteration, examCount]);
+	task.startExam(diff);
+	#task.checkSuccessful.connect(_examCompleted);
+	if iteration < examCount:
+		task.checkSuccessful.connect(examSuccessful.bind(task, diff, iteration, examCount));
+		task.checkButton.checkTryExceeded.connect(_examFailed.bind(task));
+	else:
+		task.checkSuccessful.connect(_examCompleted.bind(task));
+		task.checkButton.checkTryExceeded.connect(_examFailed.bind(task));
 
-func _examCompleted():
-	_disconnectSignals();
+func _examCompleted(task: TaskContainer):
+	_disconnectSignals(task);
 	checkSuccessful.emit();
 	if visible:
 		toggleVisibility();
 
-func _examFailed():
-	_disconnectSignals();
+func _examFailed(task: TaskContainer):
+	_disconnectSignals(task);
 	checkFailed.emit();
 	if visible:
 		toggleVisibility();
 	
 
-func _disconnectSignals():
-	if (hard_task.checkButton.checkTryExceeded.is_connected(_examFailed)):
-		hard_task.checkButton.checkTryExceeded.disconnect(_examFailed);
-	if (hard_task.checkSuccessful.is_connected(_examCompleted)):
-		hard_task.checkSuccessful.disconnect(_examCompleted);
-	if (normal_task.checkButton.checkTryExceeded.is_connected(_examFailed)):
-		normal_task.checkButton.checkTryExceeded.disconnect(_examFailed);
-	if (normal_task.checkSuccessful.is_connected(_examCompleted)):
-		normal_task.checkSuccessful.disconnect(_examCompleted);
+func _disconnectSignals(task: TaskContainer):
+	if (task.checkButton.checkTryExceeded.is_connected(_examFailed)):
+		task.checkButton.checkTryExceeded.disconnect(_examFailed);
+	if (task.checkSuccessful.is_connected(_examCompleted)):
+		task.checkSuccessful.disconnect(_examCompleted);
+	if (task.checkSuccessful.is_connected(examSuccessful)):
+		task.checkSuccessful.disconnect(examSuccessful);
 
 func toggleVisibility():
 	visible = !visible;

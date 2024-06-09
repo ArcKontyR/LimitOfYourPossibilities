@@ -21,7 +21,7 @@ func _on_hitbox_body_entered(body):
 		print_rich("[color=yellow]%s[/color] entered an enemy area" % body.name);
 		if (!taskCompleted):
 			player.disableProcess();
-			task.startExam(TaskDifficultyEnum.TaskDifficulty.HARD);
+			task.startExam(TaskDifficultyEnum.TaskDifficulty.HARD, 2);
 
 func task_complete():
 	taskCompleted = true;
