@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://bbwbxanv8qhnh"]
 
-[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_tq2jp"]
+[ext_resource type="Script" path="res://Scripts/Scenes/Level.gd" id="1_tq2jp"]
 [ext_resource type="Texture2D" uid="uid://bx4ngfxwlhebv" path="res://Sprites/Background/Stairs.png" id="2_2731n"]
 [ext_resource type="PackedScene" uid="uid://duf3rtoth5kj7" path="res://Scenes/Obstacles/Wall.tscn" id="3_rf6n5"]
 [ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Obstacles/Floor.tscn" id="4_2r5ud"]
-[ext_resource type="PackedScene" uid="uid://ccv0316dswlss" path="res://Scenes/TeleportArea.tscn" id="5_1u657"]
-[ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Player.tscn" id="6_31x63"]
+[ext_resource type="PackedScene" uid="uid://ccv0316dswlss" path="res://Scenes/Other/TeleportArea.tscn" id="5_1u657"]
+[ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Entities/Player.tscn" id="6_31x63"]
 [ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI/UI.tscn" id="7_app4f"]
-[ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/AnimationBetweenScene.tscn" id="8_3l5v7"]
+[ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/Other/AnimationBetweenScene.tscn" id="8_3l5v7"]
 
 [node name="Stairs2-1" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -48,20 +48,16 @@ scale = Vector2(5.3, 1)
 [node name="TeleportArea" parent="." instance=ExtResource("5_1u657")]
 position = Vector2(1036, 918)
 scale = Vector2(1.8, 1.8)
-shouldExam = false
 teleportFrom = "Stairs2-1"
 teleportTo = "Corridor2"
 teleportName = "1"
-difficulty = 1
 
 [node name="TeleportArea2" parent="." instance=ExtResource("5_1u657")]
 position = Vector2(186, 770)
 scale = Vector2(1.8, 1.8)
-shouldExam = false
 teleportFrom = "Stairs2-1"
 teleportTo = "Corridor1"
 teleportName = "1"
-difficulty = 1
 
 [node name="Player" parent="." instance=ExtResource("6_31x63")]
 position = Vector2(266, 424)

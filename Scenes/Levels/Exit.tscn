@@ -1,16 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3lam8atstxt8"]
+[gd_scene load_steps=10 format=3 uid="uid://b3lam8atstxt8"]
 
-[ext_resource type="Script" path="res://Scripts/Exit.gd" id="1_g5opv"]
+[ext_resource type="Script" path="res://Scripts/Scenes/Exit.gd" id="1_g5opv"]
 [ext_resource type="Texture2D" uid="uid://juisyc7vtq5o" path="res://Sprites/Background/ExitBackground.png" id="2_ocl6s"]
 [ext_resource type="PackedScene" uid="uid://duf3rtoth5kj7" path="res://Scenes/Obstacles/Wall.tscn" id="3_fjlm2"]
 [ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Obstacles/Floor.tscn" id="4_1wy4p"]
-[ext_resource type="Script" path="res://Scripts/ExitTrigger.gd" id="7_jrxah"]
-[ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Player.tscn" id="11_qevrq"]
+[ext_resource type="Script" path="res://Scripts/Other/ExitTrigger.gd" id="7_jrxah"]
+[ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Entities/Player.tscn" id="11_qevrq"]
 [ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI/UI.tscn" id="12_5er5w"]
-[ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/AnimationBetweenScene.tscn" id="13_tqrbb"]
-
-[sub_resource type="SystemFont" id="SystemFont_iel6k"]
-font_names = PackedStringArray("Cascadia Mono")
+[ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/Other/AnimationBetweenScene.tscn" id="13_tqrbb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wakdw"]
 size = Vector2(216, 744)
@@ -52,17 +49,6 @@ scale = Vector2(1.52973, 1.0988)
 
 [node name="Player" parent="." instance=ExtResource("11_qevrq")]
 position = Vector2(158, 370)
-
-[node name="FinalText" type="RichTextLabel" parent="Player"]
-offset_left = -191.0
-offset_top = -255.0
-offset_right = 223.0
-offset_bottom = -212.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = SubResource("SystemFont_iel6k")
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-text = "[p align=center][wave]Вы сбежали из кошмара[/wave][/p]"
 
 [node name="UI" parent="." instance=ExtResource("12_5er5w")]
 
