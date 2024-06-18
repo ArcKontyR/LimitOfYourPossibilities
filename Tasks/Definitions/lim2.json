@@ -1,14 +1,14 @@
 {
 	"unique_id": "2",
 	"Name": "lim2",
-	"Path": "Images/lim2/",
+	"Path": "Images/",
 	"Parts": [
 		{
-			"PictureName": "L2_1.png",
+			"PictureName": "limit.png",
 			"CompareCode": 1
 		},
 		{
-			"PictureName": "L2_2.png",
+			"PictureName": "xtozero.png",
 			"CompareCode": 2
 		},
 		{
@@ -16,11 +16,11 @@
 			"CompareCode": 3
 		},
 		{
-			"PictureName": "L2_4.png",
+			"PictureName": "equals.png",
 			"CompareCode": 4
 		},
 		{
-			"PictureName": "L2_5.png",
+			"PictureName": "zero.png",
 			"CompareCode": 5
 		}
 	]

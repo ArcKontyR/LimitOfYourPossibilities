@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3lam8atstxt8"]
+
+[ext_resource type="Script" path="res://Scripts/Scenes/Exit.gd" id="1_g5opv"]
+[ext_resource type="Texture2D" uid="uid://juisyc7vtq5o" path="res://Sprites/Background/ExitBackground.png" id="2_ocl6s"]
+[ext_resource type="PackedScene" uid="uid://duf3rtoth5kj7" path="res://Scenes/Obstacles/Wall.tscn" id="3_fjlm2"]
+[ext_resource type="PackedScene" uid="uid://dy8i1vkebg8ik" path="res://Scenes/Obstacles/Floor.tscn" id="4_1wy4p"]
+[ext_resource type="Script" path="res://Scripts/Other/ExitTrigger.gd" id="7_jrxah"]
+[ext_resource type="PackedScene" uid="uid://16iu0ilc444t" path="res://Scenes/Entities/Player.tscn" id="11_qevrq"]
+[ext_resource type="PackedScene" uid="uid://dyg7fekjwhabs" path="res://Scenes/UI/UI.tscn" id="12_5er5w"]
+[ext_resource type="PackedScene" uid="uid://be0emau7rnxpa" path="res://Scenes/Other/AnimationBetweenScene.tscn" id="13_tqrbb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wakdw"]
+size = Vector2(216, 744)
+
+[node name="Exit" type="Node2D"]
+script = ExtResource("1_g5opv")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(1420, 370)
+texture = ExtResource("2_ocl6s")
+flip_h = true
+
+[node name="Environment" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Wall" parent="Environment" instance=ExtResource("3_fjlm2")]
+position = Vector2(0, -1)
+scale = Vector2(0.921564, 11.7759)
+
+[node name="Wall2" parent="Environment" instance=ExtResource("3_fjlm2")]
+position = Vector2(2768, 0)
+scale = Vector2(1, 11.6135)
+
+[node name="Floor" parent="Environment" instance=ExtResource("4_1wy4p")]
+position = Vector2(12, 720)
+scale = Vector2(22.1058, 1.02097)
+
+[node name="Floor2" parent="Environment" instance=ExtResource("4_1wy4p")]
+position = Vector2(32, 604)
+scale = Vector2(1.52973, 1.0988)
+
+[node name="Floor3" parent="Environment" instance=ExtResource("4_1wy4p")]
+position = Vector2(228, 604)
+rotation = 0.646142
+scale = Vector2(1.52973, 1.0988)
+
+[node name="Player" parent="." instance=ExtResource("11_qevrq")]
+position = Vector2(158, 370)
+
+[node name="UI" parent="." instance=ExtResource("12_5er5w")]
+
+[node name="ExitTrigger" type="Area2D" parent="."]
+position = Vector2(2146, 10)
+script = ExtResource("7_jrxah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTrigger"]
+position = Vector2(98, 362)
+shape = SubResource("RectangleShape2D_wakdw")
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("13_tqrbb")]
+
+[connection signal="body_entered" from="ExitTrigger" to="ExitTrigger" method="_on_body_entered"]

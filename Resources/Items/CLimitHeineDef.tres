@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bf7j4obg4ant5"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/Item.gd" id="1_r32pk"]
+[ext_resource type="Texture2D" uid="uid://cn1iga3xennv6" path="res://Sprites/UI/PaperVar4.png" id="2_3lyyw"]
+
+[resource]
+script = ExtResource("1_r32pk")
+uniqueId = "c_limit_heine_def"
+groupId = ""
+title = "Определение по Гейне"
+description = "Число A предел функции в точке x0:A = lim x->x0 f(x),если для любой последовательности аргументов {xn},сходящихся к x0 соответствующая последовательность {yn} = {f(xn)} сходится к А"
+amount = 1
+texture = ExtResource("2_3lyyw")

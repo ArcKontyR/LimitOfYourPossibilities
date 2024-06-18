@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://syai1i2peyh2"]
+
+[ext_resource type="Script" path="res://Scripts/Other/СameraZoom.gd" id="1_trf0b"]
+
+[node name="Camera" type="Camera2D"]
+process_callback = 0
+script = ExtResource("1_trf0b")

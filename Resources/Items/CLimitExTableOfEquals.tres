@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://begf6hjyojsu6"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/Item.gd" id="1_jiom3"]
+[ext_resource type="Texture2D" uid="uid://bj4k4ftk2yuve" path="res://Sprites/UI/PaperVar1.png" id="2_2f78f"]
+
+[resource]
+script = ExtResource("1_jiom3")
+uniqueId = "c_limitex_table_of_equals"
+groupId = ""
+title = "Таблица эквивалентных бесконечно малых"
+description = "При x -> 0: [p]x ~ sinx ~ tg x ~ arcsinx ~ arctg x;[/p][p]x ~ e^x ~ ln(1+x);[/p] [p]1 - cos x ~ x^2 / 2[/p]"
+amount = 1
+texture = ExtResource("2_2f78f")

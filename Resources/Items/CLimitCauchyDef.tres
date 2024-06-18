@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dvcrm5205r3ie"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/Item.gd" id="1_gbdgu"]
+[ext_resource type="Texture2D" uid="uid://bj4k4ftk2yuve" path="res://Sprites/UI/PaperVar1.png" id="2_psyfq"]
+
+[resource]
+script = ExtResource("1_gbdgu")
+uniqueId = "c_limit_cauchy_def"
+groupId = ""
+title = "Определение по Коши"
+description = "Число А - предел функции y = f(x) в точке x0, если для любого ξ > 0 существует δ(ξ) > 0: для любого x ∈ X, удовлетворяет неравенству 0 <|x-x0|< δ =>|f(x) - A| < ξ"
+amount = 1
+texture = ExtResource("2_psyfq")

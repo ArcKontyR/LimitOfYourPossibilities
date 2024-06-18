@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c1q8shab2hvrl"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/Item.gd" id="1_v48rs"]
+[ext_resource type="Texture2D" uid="uid://5auxssambnip" path="res://Sprites/UI/PaperVar3.png" id="2_2sunl"]
+
+[resource]
+script = ExtResource("1_v48rs")
+uniqueId = "c_limitex_second_ideal"
+groupId = ""
+title = "Второй замечательный предел"
+description = "[p]lim x->∞ x(1+1/x) = e;[/p][p]lim x->a (1+a)^(1/a) = e[/p]"
+amount = 1
+texture = ExtResource("2_2sunl")

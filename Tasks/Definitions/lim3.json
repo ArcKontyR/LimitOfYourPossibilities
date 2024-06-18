@@ -1,14 +1,14 @@
 {
 	"unique_id": "3",
 	"Name": "lim3",
-	"Path": "Images/lim3/",
+	"Path": "Images/",
 	"Parts": [
 		{
-			"PictureName": "L3_1.png",
+			"PictureName": "limit.png",
 			"CompareCode": 1
 		},
 		{
-			"PictureName": "L3_2.png",
+			"PictureName": "xtotwo.png",
 			"CompareCode": 2
 		},
 		{
@@ -16,11 +16,11 @@
 			"CompareCode": 3
 		},
 		{
-			"PictureName": "L3_4.png",
+			"PictureName": "equals.png",
 			"CompareCode": 4
 		},
 		{
-			"PictureName": "L3_5.png",
+			"PictureName": "eight.png",
 			"CompareCode": 5
 		}
 	]

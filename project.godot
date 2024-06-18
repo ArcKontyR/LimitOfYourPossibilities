@@ -11,16 +11,16 @@ config_version=5
 [application]
 
 config/name="LimitOfYourPossibilities"
-run/main_scene="res://Scenes/Menu.tscn"
+run/main_scene="res://Scenes/Other/Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Sprites/GameIcon.png"
 
 [autoload]
 
-JsonParser="*res://Scripts/JSONParser.gd"
-GlobalSettings="*res://Scripts/GlobalSettings.gd"
-ItemDatabase="*res://Scripts/ItemDatabase.gd"
-TaskDatabase="*res://Scripts/TaskDatabase.gd"
+JsonParser="*res://Scripts/Global/JSONParser.gd"
+GlobalSettings="*res://Scripts/Global/GlobalSettings.gd"
+ItemDatabase="*res://Scripts/Global/ItemDatabase.gd"
+TaskDatabase="*res://Scripts/Global/TaskDatabase.gd"
 
 [display]
 
